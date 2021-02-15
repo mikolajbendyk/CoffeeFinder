@@ -14,10 +14,11 @@ public class Roastery {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToOne       //jednokierunkowa
-    private Address address;
+    private String address;
+    @ManyToOne
+    private City city;
     @OneToMany(mappedBy = "roastery")
     private List<Coffee> coffees;
-    @ManyToMany     //dwukierunkowa
-    private List<Producer> producers;
+    @ManyToMany
+    private List<Shipment> shipments;
 }

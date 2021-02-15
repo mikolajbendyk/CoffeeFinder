@@ -37,8 +37,6 @@ public class Coffee {
     private Country country;
     @ManyToOne      //jednokierunkowa
     private Producer producer;
-    @ManyToMany     //jednokierunkowa
-    private List<Shipment> shipments;
 }
 
 /*

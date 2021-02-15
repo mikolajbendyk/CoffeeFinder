@@ -25,21 +25,17 @@ public class Coffee {
     private Process process;
     private Double points;
     private Roast roast;
-    @ManyToMany     //jednokierunkowa
+    @ManyToMany
     private List<Species> species;
-    @ManyToMany     //jednokierunkowa
+    @ManyToMany
     private List<Method> methods;
-    @ManyToMany     //jednokierunkowa
+    @ManyToMany
     private List<Flavour> flavours;
-    @ManyToOne      //dwukierunkowa
+    @ManyToOne
     private Roastery roastery;
-    @ManyToOne      //jednokierunkowa
+    @ManyToOne
     private Country country;
-    @ManyToOne      //jednokierunkowa
+    @ManyToOne
     private Producer producer;
+    private boolean active;
 }
-
-/*
- * Producer zawiera w sobie pole Country, więc jest to pewne powielenie, jednak nie zawsze Producer będzie znany,
- * natomiast Country będzie zawsze
- * */

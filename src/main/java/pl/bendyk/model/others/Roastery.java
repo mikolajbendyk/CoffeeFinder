@@ -15,8 +15,7 @@ public class Roastery {
     private Long id;
     private String name;
     private String address;
-    @ManyToOne
-    private City city;
+    private String city;
     @OneToMany(mappedBy = "roastery")
     private List<Coffee> coffees;
     @ManyToMany

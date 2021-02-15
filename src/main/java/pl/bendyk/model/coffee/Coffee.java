@@ -26,6 +26,8 @@ public class Coffee {
     private Double points;
     private Roast roast;
     @ManyToMany
+    private List<Volume> volume;
+    @ManyToMany
     private List<Species> species;
     @ManyToMany
     private List<Method> methods;

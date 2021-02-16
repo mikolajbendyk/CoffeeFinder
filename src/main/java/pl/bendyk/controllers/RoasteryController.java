@@ -37,7 +37,7 @@ public class RoasteryController {
     @PostMapping("/add")
     public String postAddForm(Roastery roastery) {
         roasteryRepository.save(roastery);
-        return "redirect:/roasteries/all";
+        return "showAll";
     }
 
     @GetMapping("/edit/{id")
@@ -49,7 +49,7 @@ public class RoasteryController {
     @PostMapping("edit/{id}")
     public String postEditForm(Roastery roastery) {
         roasteryRepository.save(roastery);
-        return "redirect:/roasteries/all";
+        return "showAll";
     }
 
     @RequestMapping("/confirm")
@@ -60,6 +60,6 @@ public class RoasteryController {
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         roasteryRepository.deleteById(id);
-        return "redirect:/roasteries/all";
+        return "showAll";
     }
 }

@@ -116,10 +116,9 @@
                     <!-- Menu -->
                     <div class="topbar-divider d-none d-sm-block"></div>
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                        <a class="nav-link dropdown-toggle" href='<c:url value="/admin/coffees/all"/>' role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><a
-                                    href='<c:url value="/admin/coffees"/>'>Kawy</a></span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kawy</span>
                         </a>
                     </li>
                     <div class="topbar-divider d-none d-sm-block"></div>
@@ -163,13 +162,12 @@
 
                     <!-- Earnings (Monthly) Card Example -->
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <a href="#">
+                        <a href='<c:url value="/admin/coffees/all"/>'>
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
-                                                    href='<c:url value="/admin/coffees/all"/>'>Kawy</a></div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Kawy</div>
                                         </div>
                                     </div>
                                 </div>
@@ -178,13 +176,12 @@
                     </div>
 
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <a href="#">
+                        <a href='<c:url value="/admin/roasteries/all"/>'>
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
-                                                    href='<c:url value="/admin/roasteries/all"/>'>Palarnie</a></div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Palarnie</div>
                                         </div>
                                     </div>
                                 </div>
@@ -193,13 +190,12 @@
                     </div>
 
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <a href="#">
+                        <a href='<c:url value="/admin/countries/all"/>'>
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
-                                                    href='<c:url value="/admin/countries/all"/>'>Kraje pochodzenia</a></div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Kraje pochodzenia</div>
                                         </div>
                                     </div>
                                 </div>
@@ -208,13 +204,12 @@
                     </div>
 
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <a href="#">
+                        <a href='<c:url value="/admin/species/all"/>'>
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
-                                                    href='<c:url value="/admin/species/all"/>'>Gatunki kawy</a></div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Gatunki kawy</div>
                                         </div>
                                     </div>
                                 </div>
@@ -223,13 +218,12 @@
                     </div>
 
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <a href="#">
+                        <a href='<c:url value="/admin/methods/all"/>'>
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
-                                                    href='<c:url value="/admin/methods/all"/>'>Metody parzenia</a></div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Metody parzenia</div>
                                         </div>
                                     </div>
                                 </div>
@@ -238,13 +232,12 @@
                     </div>
 
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <a href="#">
+                        <a href='<c:url value="/admin/flavours/all"/>'>
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
-                                                    href='<c:url value="/admin/flavours/all"/>'>Nuty smakowe</a></div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Nuty smakowe</div>
                                         </div>
                                     </div>
                                 </div>
@@ -253,13 +246,12 @@
                     </div>
 
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <a href="#">
+                        <a href='<c:url value="/admin/volumes/all"/>'>
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
-                                                    href='<c:url value="/admin/volumes/all"/>'>Wielkości opakowań</a></div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Wielkości opakowań</div>
                                         </div>
                                     </div>
                                 </div>
@@ -268,20 +260,18 @@
                     </div>
 
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <a href="#">
+                        <a href='<c:url value="/admin/shipments/all"/>'>
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
-                                                    href='<c:url value="/admin/shipments/all"/>'>Sposoby wysyłki</a></div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Sposoby wysyłki</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div>
-
 
                 </div>
 

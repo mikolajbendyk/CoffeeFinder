@@ -1,4 +1,4 @@
-package pl.bendyk.controllers;
+package pl.bendyk.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

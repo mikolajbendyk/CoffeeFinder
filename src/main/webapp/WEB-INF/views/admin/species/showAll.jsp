@@ -55,49 +55,49 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/coffees/all"/>'>
+            <a class="nav-link" href="#">
                 <span>Kawy</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/roasteries/all"/>'>
+            <a class="nav-link" href="#">
                 <span>Palarnie</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/countries/all"/>'>
+            <a class="nav-link" href="#">
                 <span>Kraje pochodzenia</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/species/all"/>'>
+            <a class="nav-link" href="#">
                 <span>Gatunki kawy</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/methods/all"/>'>
+            <a class="nav-link" href="#">
                 <span>Metody parzenia</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/flavours/all"/>'>
+            <a class="nav-link" href="#">
                 <span>Nuty smakowe</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/volumes/all"/>'>
+            <a class="nav-link" href="#">
                 <span>Wielkości opakowań</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/shipments/all"/>'>
+            <a class="nav-link" href="#">
                 <span>Sposoby wysyłki</span>
             </a>
         </li>
@@ -161,6 +161,7 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Gatunki kawy</h1>
+                    <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel zarządzania</a>
                 </div>
 
                 <!-- Content Row -->

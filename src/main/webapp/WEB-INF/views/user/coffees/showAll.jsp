@@ -188,26 +188,6 @@
             </div>
         </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-
-        <div class="sidebar-heading">
-            Dodawanie
-        </div>
-
-        <!-- Dodawanie kawy -->
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <span>Dodaj kawę</span></a>
-        </li>
-
-        <!-- Dodawanie palarni -->
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <span>Dodaj palarnię</span></a>
-        </li>
-
-
 
     </ul>
     <!-- End of Sidebar -->
@@ -232,13 +212,6 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kawy</span>
-                        </a>
-                    </li>
-                    <div class="topbar-divider d-none d-sm-block"></div>
-                    <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Palarnie</span>
                         </a>
                     </li>
                     <div class="topbar-divider d-none d-sm-block"></div>

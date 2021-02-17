@@ -13,5 +13,5 @@ public class Shipment {
     private Long id;
     private String name;
     private Double price;
-    private ShipmentType shipmentType;
+    private String shipmentType;
 }

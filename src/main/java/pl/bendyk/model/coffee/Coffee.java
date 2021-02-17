@@ -2,9 +2,7 @@ package pl.bendyk.model.coffee;
 
 import lombok.Data;
 import pl.bendyk.model.others.Country;
-import pl.bendyk.model.others.Producer;
 import pl.bendyk.model.others.Roastery;
-import pl.bendyk.model.others.Shipment;
 
 import javax.persistence.*;
 import java.util.List;
@@ -37,7 +35,5 @@ public class Coffee {
     private Roastery roastery;
     @ManyToOne
     private Country country;
-    @ManyToOne
-    private Producer producer;
     private boolean active;
 }

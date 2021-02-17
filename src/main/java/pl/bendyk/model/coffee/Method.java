@@ -19,7 +19,8 @@ najpierw myślałem, żeby zrobić to enumem, bo będzie tylko kilka konkretnych
 jak to pogodzić z relacją do wielu, żeby przy jednej kawie mogło być kilka metod
 
 instancje:
-POUR_OVER
+DRIP_COFFEE_MAKER
+DRIP
 AEROPRESS
 FRENCHPRESS
 MOKKA_POT

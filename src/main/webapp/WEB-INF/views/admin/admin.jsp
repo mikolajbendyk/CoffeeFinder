@@ -16,13 +16,13 @@
     <title>Coffee Finder</title>
 
     <!-- Custom fonts for this template-->
-    <link href='<c:url value="theme/vendor/fontawesome-free/css/all.min.css"/>' rel="stylesheet" type="text/css">
+    <link href='<c:url value="/theme/vendor/fontawesome-free/css/all.min.css"/>' rel="stylesheet" type="text/css">
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href='<c:url value="theme/css/sb-admin-2.min.css"/>' rel="stylesheet">
+    <link href='<c:url value="/theme/css/sb-admin-2.min.css"/>' rel="stylesheet">
 
 </head>
 
@@ -49,53 +49,52 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href='<c:url value="/admin/coffees/all"/>'>
                 <span>Kawy</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href='<c:url value="/admin/roasteries/all"/>'>
                 <span>Palarnie</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href='<c:url value="/admin/countries/all"/>'>
                 <span>Kraje pochodzenia</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href='<c:url value="/admin/species/all"/>'>
                 <span>Gatunki kawy</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href='<c:url value="/admin/methods/all"/>'>
                 <span>Metody parzenia</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href='<c:url value="/admin/flavours/all"/>'>
                 <span>Nuty smakowe</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href='<c:url value="/admin/volumes/all"/>'>
                 <span>Wielkości opakowań</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href='<c:url value="/admin/shipments/all"/>'>
                 <span>Sposoby wysyłki</span>
             </a>
         </li>
-
 
 
     </ul>
@@ -114,13 +113,13 @@
                 <ul class="navbar-nav ml-auto">
 
 
-
                     <!-- Menu -->
                     <div class="topbar-divider d-none d-sm-block"></div>
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kawy</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><a
+                                    href='<c:url value="/admin/coffees"/>'>Kawy</a></span>
                         </a>
                     </li>
                     <div class="topbar-divider d-none d-sm-block"></div>
@@ -169,7 +168,8 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Kawy</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
+                                                    href='<c:url value="/admin/coffees/all"/>'>Kawy</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +183,8 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Palarnie</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
+                                                    href='<c:url value="/admin/roasteries/all"/>'>Palarnie</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -197,7 +198,8 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Kraje pochodzenia</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
+                                                    href='<c:url value="/admin/countries/all"/>'>Kraje pochodzenia</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -211,7 +213,8 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Gatunki kawy</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
+                                                    href='<c:url value="/admin/species/all"/>'>Gatunki kawy</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -225,7 +228,8 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Metody parzenia</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
+                                                    href='<c:url value="/admin/methods/all"/>'>Metody parzenia</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -239,7 +243,8 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Nuty smakowe</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
+                                                    href='<c:url value="/admin/flavours/all"/>'>Nuty smakowe</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -253,7 +258,8 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Wielkości opakowań</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
+                                                    href='<c:url value="/admin/volumes/all"/>'>Wielkości opakowań</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -267,7 +273,8 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Sposoby wysyłki</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><a
+                                                    href='<c:url value="/admin/shipments/all"/>'>Sposoby wysyłki</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -302,21 +309,21 @@
 <!-- End of Page Wrapper -->
 
 <!-- Bootstrap core JavaScript-->
-<script src='<c:url value="theme/vendor/jquery/jquery.min.js"/>'></script>
-<script src='<c:url value="theme/vendor/bootstrap/js/bootstrap.bundle.min.js"/>'></script>
+<script src='<c:url value="/theme/vendor/jquery/jquery.min.js"/>'></script>
+<script src='<c:url value="/theme/vendor/bootstrap/js/bootstrap.bundle.min.js"/>'></script>
 
 <!-- Core plugin JavaScript-->
-<script src='<c:url value="theme/vendor/jquery-easing/jquery.easing.min.js"/>'></script>
+<script src='<c:url value="/theme/vendor/jquery-easing/jquery.easing.min.js"/>'></script>
 
 <!-- Custom scripts for all pages-->
-<script src='<c:url value="theme/js/sb-admin-2.min.js"/>'></script>
+<script src='<c:url value="/theme/js/sb-admin-2.min.js"/>'></script>
 
 <!-- Page level plugins -->
-<script src='<c:url value="theme/vendor/chart.js/Chart.min.js"/>'></script>
+<script src='<c:url value="/theme/vendor/chart.js/Chart.min.js"/>'></script>
 
 <!-- Page level custom scripts -->
-<script src='<c:url value="theme/js/demo/chart-area-demo.js"/>'></script>
-<script src='<c:url value="theme/js/demo/chart-pie-demo.js"/>'></script>
+<script src='<c:url value="/theme/js/demo/chart-area-demo.js"/>'></script>
+<script src='<c:url value="/theme/js/demo/chart-pie-demo.js"/>'></script>
 
 </body>
 

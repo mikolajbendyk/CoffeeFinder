@@ -97,7 +97,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/shipments/all"/>'>
+            <a class="nav-link" href='<c:url value="/admin/shipment-types/all"/>'>
                 <span>Sposoby wysyłki</span>
             </a>
         </li>

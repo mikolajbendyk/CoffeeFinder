@@ -1,6 +1,8 @@
 package pl.bendyk.model.others;
 
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
 
 import javax.persistence.*;
 
@@ -13,5 +15,6 @@ public class Shipment {
     private Long id;
     private String name;
     private Double price;
-    private String shipmentType;
+    @ManyToOne
+    private ShipmentType shipmentType;
 }

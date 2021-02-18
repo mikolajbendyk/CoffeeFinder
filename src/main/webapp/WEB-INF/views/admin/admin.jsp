@@ -91,7 +91,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/shipments/all"/>'>
+            <a class="nav-link" href='<c:url value="/admin/shipment-types/all"/>'>
                 <span>Sposoby wysyłki</span>
             </a>
         </li>
@@ -260,7 +260,7 @@
                     </div>
 
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <a href='<c:url value="/admin/shipments/all"/>'>
+                        <a href='<c:url value="/admin/shipment-types/all"/>'>
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">

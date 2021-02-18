@@ -47,8 +47,8 @@ public class AdminController {
         return "admin/volumes/showAll";
     }
 
-    @RequestMapping("/shipments")
+    @RequestMapping("/shipment-types")
     public String shipments() {
-        return "admin/shipments/showAll";
+        return "admin/shipmentTypes/showAll";
     }
 }

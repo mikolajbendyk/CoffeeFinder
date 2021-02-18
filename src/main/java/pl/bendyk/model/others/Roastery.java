@@ -16,8 +16,6 @@ public class Roastery {
     private String name;
     private String address;
     private String city;
-    @OneToMany(mappedBy = "roastery")
-    private List<Coffee> coffees;
     @ManyToMany
     private List<Shipment> shipments;
 }

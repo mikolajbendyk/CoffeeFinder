@@ -166,10 +166,10 @@
 
                 <!-- Content Row -->
 
-                Czy na pewno chcesz usunąć tę metodę?
+                Czy na pewno chcesz usunąć tę palarnię?
                 <br><br>
-                <button><a href="<c:url value="/admin/methods/delete/${param.id}"/>">Tak</a></button>
-                <button><a href="<c:url value="/admin/methods/all"/>">Nie</a></button>
+                <button><a href="<c:url value="/admin/roasteries/delete/${param.id}"/>">Tak</a></button>
+                <button><a href="<c:url value="/admin/roasteries/all"/>">Nie</a></button>
 
 
             </div>

@@ -160,59 +160,17 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Palarnie kawy</h1>
-                    <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel
-                        zarządzania</a>
+                    <h1 class="h3 mb-0 text-gray-800">Sposoby wysyłki</h1>
+                    <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel zarządzania</a>
                 </div>
 
                 <!-- Content Row -->
 
-                <form:hidden path="id"></form:hidden>
-                <form:form method="post" modelAttribute="roastery">
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td>Nazwa palarni</td>
-                            <td><form:input path="name"></form:input></td>
-                        </tr>
-                        <tr>
-                            <td>Miasto</td>
-                            <td><form:input path="city"></form:input></td>
-                        </tr>
-                        <tr>
-                            <td>Adres</td>
-                            <td><form:input path="address"></form:input></td>
-                        </tr>
-                    </table>
-                    <br>
-                    <input type="submit" value="Zapisz">
-                </form:form>
-
-                <br>
-
-                <h4>Sposoby wysyłki</h4>
-
-                <table>
-                    <thead>
-                    <th>Nr</th>
-                    <th>Sposób wysyłki</th>
-                    <th>Cena</th>
-                    <th>Akcje</th>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${shipments}" var="shipment" varStatus="loop">
-                        <tr>
-                            <td><c:out value="${loop.count}"/></td>
-                            <td><c:out value="${shipment.shipmentType.name}"/></td>
-                            <td><c:out value="${shipment.price}"/></td>
-                            <td><a href='<c:url value="/admin/roasteries/${id}/shipments/edit/${shipment.id}"/>'>Edytuj</a> 
-                                <a href='<c:url value="/admin/roasteries/${id}/shipments/confirm?id=${shipment.id}&roastery=${id}"/>'>Usuń</a></td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-
-                <button><a href='<c:url value="/admin/roasteries/${id}/shipments/add"/>'>Dodaj sposób wysyłki</a></button>
+                Czy na pewno chcesz usunąć ten sposób wysyłki?
+                <br><br>
+<%--                <form:hidden path="id" ></form:hidden>--%>
+                <button><a href="<c:url value="/admin/roasteries/${param.roastery}/shipments/delete/${param.id}"/>">Tak</a></button>
+                <button><a href="<c:url value="/admin/roasteries/edit/${param.roastery}"/>">Nie</a></button>
 
 
             </div>

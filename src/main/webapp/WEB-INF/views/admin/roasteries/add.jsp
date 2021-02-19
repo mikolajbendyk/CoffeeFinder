@@ -160,25 +160,33 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Metody parzenia</h1>
-                    <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel zarządzania</a>
+                    <h1 class="h3 mb-0 text-gray-800">Palarnie kawy</h1>
+                    <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel
+                        zarządzania</a>
                 </div>
 
                 <!-- Content Row -->
 
-                    <form:form method="post" modelAttribute="method">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>Nazwa metody</td>
-                                    <td><form:input path="name"></form:input></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <br>
-                        <input type="submit" value="Zapisz">
-                    </form:form>
-
+                <form:form method="post" modelAttribute="roastery">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>Nazwa palarni</td>
+                            <td><form:input path="name"></form:input></td>
+                        </tr>
+                        <tr>
+                            <td>Miasto</td>
+                            <td><form:input path="city"></form:input></td>
+                        </tr>
+                        <tr>
+                            <td>Adres</td>
+                            <td><form:input path="address"></form:input></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <input type="submit" value="Zapisz">
+                </form:form>
 
             </div>
             <!-- /.container-fluid -->

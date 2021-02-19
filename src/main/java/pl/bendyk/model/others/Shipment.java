@@ -1,10 +1,12 @@
 package pl.bendyk.model.others;
 
 import lombok.Data;
+import org.hibernate.annotations.Cascade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -13,8 +15,9 @@ public class Shipment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
     private Double price;
     @ManyToOne
     private ShipmentType shipmentType;
+//    @ManyToMany(mappedBy = "shipments")
+//    private List<Roastery> roasteries;
 }

@@ -16,6 +16,6 @@ public class Roastery {
     private String name;
     private String address;
     private String city;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Shipment> shipments;
 }

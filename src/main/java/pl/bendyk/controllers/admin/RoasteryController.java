@@ -8,58 +8,58 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.bendyk.model.others.Roastery;
 import pl.bendyk.repository.RoasteryRepository;
-
-
-import java.util.List;
+import pl.bendyk.repository.ShipmentRepository;
 
 @Controller
-@RequestMapping("/roasteries")
+@RequestMapping("/admin/roasteries")
 public class RoasteryController {
 
     private final RoasteryRepository roasteryRepository;
+    private final ShipmentRepository shipmentRepository;
 
-    public RoasteryController(RoasteryRepository roasteryRepository) {
+    public RoasteryController(RoasteryRepository roasteryRepository, ShipmentRepository shipmentRepository) {
         this.roasteryRepository = roasteryRepository;
+        this.shipmentRepository = shipmentRepository;
     }
 
     @GetMapping("/all")
     public String showAll(Model model) {
-        List<Roastery> roasteries = roasteryRepository.findAll();
-        model.addAttribute("roasteries", roasteries);
-        return "/all";
+        model.addAttribute("roasteries", roasteryRepository.findAll());
+        return "admin/roasteries/showAll";
     }
 
     @GetMapping("/add")
     public String getAddForm(Roastery roastery) {
-        return "/add";
+        return "admin/roasteries/add";
     }
 
     @PostMapping("/add")
     public String postAddForm(Roastery roastery) {
         roasteryRepository.save(roastery);
-        return "showAll";
+        return "redirect:/admin/roasteries/all";
     }
 
-    @GetMapping("/edit/{id")
+    @GetMapping("/edit/{id}")
     public String getEditForm(@PathVariable Long id, Model model) {
         model.addAttribute("roastery", roasteryRepository.findById(id));
-        return "/edit";
+        model.addAttribute("shipments", shipmentRepository.findShipmentsForRoastery(id));
+        return "admin/roasteries/edit";
     }
 
     @PostMapping("edit/{id}")
     public String postEditForm(Roastery roastery) {
         roasteryRepository.save(roastery);
-        return "showAll";
+        return "redirect:/admin/roasteries/all";
     }
 
     @RequestMapping("/confirm")
     public String confirm() {
-        return "/confirm";
+        return "admin/roasteries/confirm";
     }
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         roasteryRepository.deleteById(id);
-        return "showAll";
+        return "redirect:/admin/roasteries/all";
     }
 }

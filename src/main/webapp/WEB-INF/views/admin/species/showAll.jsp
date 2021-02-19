@@ -38,72 +38,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-text mx-3">Coffee Finder</div>
-        </a>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Zarządzanie
-        </div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/coffees/all"/>'>
-                <span>Kawy</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/roasteries/all"/>'>
-                <span>Palarnie</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/countries/all"/>'>
-                <span>Kraje pochodzenia</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/species/all"/>'>
-                <span>Gatunki kawy</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/methods/all"/>'>
-                <span>Metody parzenia</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/flavours/all"/>'>
-                <span>Nuty smakowe</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/volumes/all"/>'>
-                <span>Wielkości opakowań</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/admin/shipment-types/all"/>'>
-                <span>Sposoby wysyłki</span>
-            </a>
-        </li>
-
-
-    </ul>
+    <%@ include file="../../fragments/sidebar_admin.jsp" %>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -113,46 +48,7 @@
         <div id="content">
 
             <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                <!-- Topbar Navbar -->
-                <ul class="navbar-nav ml-auto">
-
-
-                    <!-- Menu -->
-                    <div class="topbar-divider d-none d-sm-block"></div>
-                    <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kawy</span>
-                        </a>
-                    </li>
-                    <div class="topbar-divider d-none d-sm-block"></div>
-                    <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kalkulator proporcji</span>
-                        </a>
-                    </li>
-                    <div class="topbar-divider d-none d-sm-block"></div>
-                    <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">O projekcie</span>
-                        </a>
-                    </li>
-                    <!--                         -->
-                    <div class="topbar-divider d-none d-sm-block"></div>
-                    <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kontakt</span>
-                        </a>
-                    </li>
-
-                </ul>
-
-            </nav>
+            <%@ include file="../../fragments/topbar.jsp" %>
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->

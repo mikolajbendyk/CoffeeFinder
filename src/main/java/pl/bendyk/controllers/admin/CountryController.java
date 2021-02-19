@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.bendyk.model.coffee.Method;
 import pl.bendyk.model.others.Country;
 import pl.bendyk.repository.CountryRepository;
 

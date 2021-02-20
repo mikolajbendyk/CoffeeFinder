@@ -6,14 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.bendyk.model.others.Roastery;
 import pl.bendyk.model.others.Shipment;
+import pl.bendyk.model.others.ShipmentType;
 import pl.bendyk.repository.RoasteryRepository;
 import pl.bendyk.repository.ShipmentRepository;
 import pl.bendyk.repository.ShipmentTypeRepository;
-
-import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin/roasteries/{roasteryId}/shipments")
@@ -37,23 +34,21 @@ public class ShipmentController {
 
     @PostMapping("/add")
     public String postAddForm(@PathVariable Long roasteryId, Shipment shipment) {
+        shipment.setRoastery(roasteryRepository.getOne(roasteryId));
         shipmentRepository.save(shipment);
-        Optional<Roastery> roastery = roasteryRepository.findById(roasteryId);
-        List<Shipment> shipmentList = roastery.get().getShipments();
-        shipmentList.add(shipment);
-        roastery.get().setShipments(shipmentList);
-        roasteryRepository.save(roastery.get());
         return "redirect:/admin/roasteries/edit/{roasteryId}";
     }
 
     @GetMapping("/edit/{id}")
     public String getEditForm(@PathVariable Long id, Model model) {
         model.addAttribute("shipment", shipmentRepository.findById(id));
+        model.addAttribute("shipmentTypes", shipmentTypeRepository.findAll());
         return "admin/shipments/edit";
     }
 
     @PostMapping("edit/{id}")
-    public String postEditForm(Shipment shipment) {
+    public String postEditForm(Shipment shipment, ShipmentType shipmentType) {
+        shipmentTypeRepository.save(shipmentType);
         shipmentRepository.save(shipment);
         return "redirect:/admin/roasteries/edit/{roasteryId}";
     }
@@ -65,7 +60,6 @@ public class ShipmentController {
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
-        shipmentRepository.deleteChild(id);
         shipmentRepository.deleteById(id);
         return "redirect:/admin/roasteries/edit/{roasteryId}";
     }

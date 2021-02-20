@@ -18,6 +18,6 @@ public class Shipment {
     private Double price;
     @ManyToOne
     private ShipmentType shipmentType;
-//    @ManyToMany(mappedBy = "shipments")
-//    private List<Roastery> roasteries;
+    @ManyToOne
+    private Roastery roastery;
 }

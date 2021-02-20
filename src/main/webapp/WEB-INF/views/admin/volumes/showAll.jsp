@@ -18,7 +18,7 @@
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
-    <link href='<c:url value="/theme/css/sb-admin-2.min.css"/>' href='<c:url value="/"/>'>
+    <link href='<c:url value="/theme/css/sb-admin-2.min.css"/>' rel="stylesheet">
 
     <style>
         table, th, td {
@@ -56,7 +56,7 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Gatunki kawy</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Wielkości opakowań</h1>
                     <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel zarządzania</a>
                 </div>
 

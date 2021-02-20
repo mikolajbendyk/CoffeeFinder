@@ -64,16 +64,18 @@
                 <!-- Content Row -->
 
                 <form:form method="post" modelAttribute="shipment">
-                    <form:hidden path="id"></form:hidden>
+
                     <table>
                         <tbody>
                         <tr>
-                            <td>Sposoby wysyłki</td>
+                            <td>Sposób wysyłki</td>
                             <td><form:select items="${shipmentTypes}" path="shipmentType.id" itemLabel="name" itemValue="id"/></td>
                         </tr>
                         <tr>
                             <td>Cena</td>
-                            <td><form:input path="price"></form:input></td>
+                            <td>
+<%--                                <form:hidden path="id"></form:hidden>--%>
+                                <form:input path="price"></form:input></td>
                         </tr>
                         </tbody>
                     </table>

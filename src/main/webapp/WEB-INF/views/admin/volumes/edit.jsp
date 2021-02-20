@@ -22,7 +22,7 @@
             rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href='<c:url value="/theme/css/sb-admin-2.min.css"/>' href='<c:url value="/"/>'>
+    <link href='<c:url value="/theme/css/sb-admin-2.min.css"/>' rel="stylesheet">
 
     <style>
         th, td {

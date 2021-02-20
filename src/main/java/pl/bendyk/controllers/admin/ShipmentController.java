@@ -47,8 +47,10 @@ public class ShipmentController {
     }
 
     @PostMapping("edit/{id}")
-    public String postEditForm(Shipment shipment, ShipmentType shipmentType) {
-        shipmentTypeRepository.save(shipmentType);
+    public String postEditForm(@PathVariable Long roasteryId, Shipment shipment) {
+//        shipmentTypeRepository.save(shipmentType);
+//        shipment.setShipmentType(shipmentType);
+        shipment.setRoastery(roasteryRepository.getOne(roasteryId));
         shipmentRepository.save(shipment);
         return "redirect:/admin/roasteries/edit/{roasteryId}";
     }

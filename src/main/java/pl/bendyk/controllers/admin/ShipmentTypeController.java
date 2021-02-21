@@ -2,11 +2,9 @@ package pl.bendyk.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.others.ShipmentType;
+import pl.bendyk.repository.ShipmentRepository;
 import pl.bendyk.repository.ShipmentTypeRepository;
 
 import java.util.List;
@@ -16,9 +14,11 @@ import java.util.List;
 public class ShipmentTypeController {
 
     private final ShipmentTypeRepository shipmentTypeRepository;
+    private final ShipmentRepository shipmentRepository;
 
-    public ShipmentTypeController(ShipmentTypeRepository shipmentTypeRepository) {
+    public ShipmentTypeController(ShipmentTypeRepository shipmentTypeRepository, ShipmentRepository shipmentRepository) {
         this.shipmentTypeRepository = shipmentTypeRepository;
+        this.shipmentRepository = shipmentRepository;
     }
 
     @RequestMapping("/all")
@@ -52,7 +52,10 @@ public class ShipmentTypeController {
     }
 
     @RequestMapping("/confirm")
-    public String confirm() {
+    public String confirm(@RequestParam Long id) {
+        if (shipmentRepository.existsByShipmentTypeId(id)) {
+            return "admin/shipmentTypes/confirmIfCoffee";
+        }
         return "admin/shipmentTypes/confirm";
     }
 

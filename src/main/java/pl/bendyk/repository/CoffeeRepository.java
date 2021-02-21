@@ -17,7 +17,8 @@ public interface CoffeeRepository extends JpaRepository<Coffee, Long> {
 
     boolean existsByRoasteryId(Long id);
     boolean existsByCountryId(Long id);
-//    boolean existsBySpeciesI
-//    boolean existsByMethodsId(Long id);
+    boolean existsBySpeciesId(Long id);
+    boolean existsByMethodsId(Long id);
+    boolean existsByVolumesId(Long id);
 
 }

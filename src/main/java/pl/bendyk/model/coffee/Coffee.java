@@ -13,27 +13,24 @@ import java.util.List;
 public class Coffee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;//
-    private String name;//
-    private Double price;//
+    private Long id;
+    private String name;
+    private Double price;
     @Column(length = 2000)
-    private String description;//
-//    private String imagePath;
-    private Composition composition;//
-    private Process process;//
-//    private Double points;
-    private Roast roast;//
+    private String description;
+    private Composition composition;
+    private Process process;
+    private Roast roast;
     @ManyToMany
-    private List<Volume> volumes;//
+    private List<Volume> volumes;
     @ManyToMany
-    private List<Species> species;//
+    private List<Species> species;
     @ManyToMany
-    private List<Method> methods;//
-//    @ManyToMany
-//    private List<Flavour> flavours;//
+    private List<Method> methods;
     @ManyToOne
-    private Roastery roastery;//
+    private Roastery roastery;
     @ManyToOne
-    private Country country;//
-    private boolean active;//
+    private Country country;
+    private boolean active;
+    private String link;
 }

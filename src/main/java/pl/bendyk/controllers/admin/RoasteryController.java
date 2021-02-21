@@ -56,9 +56,8 @@ public class RoasteryController {
     public String confirm(@RequestParam Long id) {
         if (coffeeRepository.existsByRoasteryId(id)) {
             return "admin/roasteries/confirmIfCoffee";
-        } else {
-            return "admin/roasteries/confirm";
         }
+        return "admin/roasteries/confirm";
     }
 
     @RequestMapping("/delete/{id}")

@@ -55,9 +55,8 @@ public class CountryController {
     public String confirm(@RequestParam Long id) {
         if (coffeeRepository.existsByCountryId(id)) {
             return "admin/countries/confirmIfCoffee";
-        } else {
-            return "admin/countries/confirm";
         }
+        return "admin/countries/confirm";
     }
 
     @RequestMapping("/delete/{id}")

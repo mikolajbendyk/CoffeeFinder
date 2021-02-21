@@ -2,11 +2,9 @@ package pl.bendyk.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.coffee.Species;
+import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.SpeciesRepository;
 
 import java.util.List;
@@ -16,9 +14,11 @@ import java.util.List;
 public class SpeciesController {
 
     private final SpeciesRepository speciesRepository;
+    private final CoffeeRepository coffeeRepository;
 
-    public SpeciesController(SpeciesRepository speciesRepository) {
+    public SpeciesController(SpeciesRepository speciesRepository, CoffeeRepository coffeeRepository) {
         this.speciesRepository = speciesRepository;
+        this.coffeeRepository = coffeeRepository;
     }
 
     @RequestMapping("/all")
@@ -52,7 +52,10 @@ public class SpeciesController {
     }
 
     @RequestMapping("/confirm")
-    public String confirm() {
+    public String confirm(@RequestParam Long id) {
+        if (coffeeRepository.existsBySpeciesId(id)) {
+            return "admin/species/confirmIfCoffee";
+        }
         return "admin/species/confirm";
     }
 

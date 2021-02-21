@@ -22,4 +22,6 @@ public interface ShipmentRepository extends JpaRepository<Shipment, Long> {
     Shipment save(Shipment shipment);
     void deleteById(Long id);
 
+    boolean existsByShipmentTypeId(Long id);
+
 }

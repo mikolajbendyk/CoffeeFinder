@@ -2,11 +2,10 @@ package pl.bendyk.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.coffee.Method;
+import pl.bendyk.repository.CoffeeRepository;
+import pl.bendyk.repository.CountryRepository;
 import pl.bendyk.repository.MethodRepository;
 
 import java.util.List;
@@ -16,9 +15,11 @@ import java.util.List;
 public class MethodController {
 
     private final MethodRepository methodRepository;
+    private final CoffeeRepository coffeeRepository;
 
-    public MethodController(MethodRepository methodRepository) {
+    public MethodController(MethodRepository methodRepository, CoffeeRepository coffeeRepository) {
         this.methodRepository = methodRepository;
+        this.coffeeRepository = coffeeRepository;
     }
 
     @RequestMapping("/all")
@@ -52,7 +53,10 @@ public class MethodController {
     }
 
     @RequestMapping("/confirm")
-    public String confirm() {
+    public String confirm(@RequestParam Long id) {
+        if (coffeeRepository.existsByMethodsId(id)) {
+            return "admin/methods/confirmIfCoffee";
+        }
         return "admin/methods/confirm";
     }
 

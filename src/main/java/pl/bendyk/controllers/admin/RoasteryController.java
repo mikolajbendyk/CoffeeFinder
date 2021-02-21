@@ -2,11 +2,9 @@ package pl.bendyk.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.others.Roastery;
+import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.RoasteryRepository;
 import pl.bendyk.repository.ShipmentRepository;
 
@@ -16,10 +14,12 @@ public class RoasteryController {
 
     private final RoasteryRepository roasteryRepository;
     private final ShipmentRepository shipmentRepository;
+    private final CoffeeRepository coffeeRepository;
 
-    public RoasteryController(RoasteryRepository roasteryRepository, ShipmentRepository shipmentRepository) {
+    public RoasteryController(RoasteryRepository roasteryRepository, ShipmentRepository shipmentRepository, CoffeeRepository coffeeRepository) {
         this.roasteryRepository = roasteryRepository;
         this.shipmentRepository = shipmentRepository;
+        this.coffeeRepository = coffeeRepository;
     }
 
     @GetMapping("/all")
@@ -53,8 +53,12 @@ public class RoasteryController {
     }
 
     @RequestMapping("/confirm")
-    public String confirm() {
-        return "admin/roasteries/confirm";
+    public String confirm(@RequestParam Long id) {
+        if (coffeeRepository.existsByRoasteryId(id)) {
+            return "admin/roasteries/confirmIfCoffee";
+        } else {
+            return "admin/roasteries/confirm";
+        }
     }
 
     @RequestMapping("/delete/{id}")

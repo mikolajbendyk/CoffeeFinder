@@ -2,11 +2,9 @@ package pl.bendyk.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.others.Country;
+import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.CountryRepository;
 
 import java.util.List;
@@ -16,9 +14,11 @@ import java.util.List;
 public class CountryController {
 
     private final CountryRepository countryRepository;
+    private final CoffeeRepository coffeeRepository;
 
-    public CountryController(CountryRepository countryRepository) {
+    public CountryController(CountryRepository countryRepository, CoffeeRepository coffeeRepository) {
         this.countryRepository = countryRepository;
+        this.coffeeRepository = coffeeRepository;
     }
 
     @RequestMapping("/all")
@@ -52,8 +52,12 @@ public class CountryController {
     }
 
     @RequestMapping("/confirm")
-    public String confirm() {
-        return "admin/countries/confirm";
+    public String confirm(@RequestParam Long id) {
+        if (coffeeRepository.existsByCountryId(id)) {
+            return "admin/countries/confirmIfCoffee";
+        } else {
+            return "admin/countries/confirm";
+        }
     }
 
     @RequestMapping("/delete/{id}")

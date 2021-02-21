@@ -15,4 +15,9 @@ public interface CoffeeRepository extends JpaRepository<Coffee, Long> {
     Coffee save(Coffee coffee);
     void deleteById(Long id);
 
+    boolean existsByRoasteryId(Long id);
+    boolean existsByCountryId(Long id);
+//    boolean existsBySpeciesI
+//    boolean existsByMethodsId(Long id);
+
 }

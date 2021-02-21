@@ -56,17 +56,17 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Sposoby wysyłki</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Kawy</h1>
                     <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel zarządzania</a>
                 </div>
 
                 <!-- Content Row -->
 
-                Czy na pewno chcesz usunąć ten sposób wysyłki?
+                Czy na pewno chcesz usunąć tę kawę?
                 <br><br>
 <%--                <form:hidden path="id" ></form:hidden>--%>
-                <button><a href="<c:url value="/admin/roasteries/${param.roastery}/shipments/delete/${param.id}"/>">Tak</a></button>
-                <button><a href="<c:url value="/admin/roasteries/edit/${param.roastery}"/>">Nie</a></button>
+                <button><a href="<c:url value="/admin/coffees/delete/${param.id}"/>">Tak</a></button>
+                <button><a href="<c:url value="/admin/coffees/all"/>">Nie</a></button>
 
 
             </div>

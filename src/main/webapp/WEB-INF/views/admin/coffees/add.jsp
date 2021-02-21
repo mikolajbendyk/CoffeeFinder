@@ -1,6 +1,7 @@
 <%@ taglib prefix="form"
            uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="forn" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -63,16 +64,88 @@
 
                 <!-- Content Row -->
 
-                <form:form method="post" modelAttribute="shipment">
+                <form:form method="post" modelAttribute="coffee">
                     <table>
                         <tbody>
                         <tr>
-                            <td>Sposoby wysyłki</td>
-                            <td><form:select items="${shipmentTypes}" path="shipmentType.id" itemLabel="name" itemValue="id"/></td>
+                            <td>Nazwa</td>
+                            <td><form:input path="name"/></td>
                         </tr>
                         <tr>
                             <td>Cena</td>
-                            <td><form:input path="price"></form:input></td>
+                            <td><form:input path="price"/></td>
+                        </tr>
+                        <tr>
+                            <td>Kraj pochodzenia</td>
+                            <td>
+                                <form:select path="country.id">
+                                    <form:option value="" label="Wybierz kraj"/>
+                                    <form:options items="${countries}" itemLabel="name" itemValue="id"/>
+                                </form:select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Obróbka</td>
+                            <td>
+                                <form:select path="process">
+                                    <form:option value="" label="Wybierz obróbkę"/>
+                                    <form:options items="${processes}" itemLabel="displayName"/>
+                                </form:select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Palarnia</td>
+                            <td>
+                                <form:select path="roastery.id">
+                                    <form:option value="" label="Wybierz palarnię"/>
+                                    <form:options items="${roasteries}" itemLabel="name"
+                                                  itemValue="id"/>
+                                </form:select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Wypalenie</td>
+                            <td>
+                                <form:select path="roast">
+                                    <form:option value="" label="Wybierz wypalenie"/>
+                                    <form:options items="${roasts}" itemLabel="displayName"/>
+                                </form:select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Metody parzenia</td>
+                            <td><c:forEach items="${methods}" var="method">
+                                <form:checkbox path="methods" label=" ${method.name}" value="${method}"/><br>
+                            </c:forEach></td>
+                        </tr>
+                        <tr>
+                            <td>Single / Blend</td>
+                            <td><c:forEach items="${compositions}" var="composition">
+                                <form:checkbox path="composition" label=" ${composition.displayName}"
+                                               value="${composition}"/><br>
+                            </c:forEach></td>
+                        </tr>
+                        <tr>
+                            <td>Gatunki</td>
+                            <td><c:forEach items="${species}" var="species">
+                                <form:checkbox path="species" label=" ${species.name}" value="${species}"/><br>
+                            </c:forEach></td>
+                        </tr>
+                        <tr>
+                            <td>Wielkości opakowań</td>
+                            <td><c:forEach items="${volumes}" var="volume">
+                                <form:checkbox path="volumes" label=" ${volume.grams}" value="${volume}"/><br>
+                            </c:forEach></td>
+                        </tr>
+                        <tr>
+                            <td>Opis</td>
+                            <td><form:textarea path="description"/></td>
+                        </tr>
+                        <tr>
+                            <td>Dostępność</td>
+                            <td><form:radiobutton path="active" value="true"/> Tak<br>
+                                <form:radiobutton path="active" value="false"/> Nie
+                            </td>
                         </tr>
                         </tbody>
                     </table>

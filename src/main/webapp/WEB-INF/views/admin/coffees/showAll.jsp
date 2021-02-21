@@ -57,7 +57,7 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Palarnie kawy</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Kawy</h1>
                     <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel
                         zarządzania</a>
                 </div>
@@ -67,33 +67,36 @@
                 <table>
                     <thead>
                     <th>Nr</th>
+                    <th>Nazwa</th>
+                    <th>Kraj pochodzenia</th>
+                    <th>Wypalenie</th>
+                    <th>Single / Blend</th>
                     <th>Palarnia</th>
                     <th>Miasto</th>
-                    <th>Adres</th>
-                    <th>Sposoby wysyłki</th>
+                    <th>Cena</th>
+                    <th>Aktywna</th>
                     <th>Akcje</th>
                     </thead>
                     <tbody>
-                    <c:forEach items="${roasteries}" var="roastery" varStatus="loop">
+                    <c:forEach items="${coffees}" var="coffee" varStatus="loop">
                         <tr>
                             <td><c:out value="${loop.count}"/></td>
-                            <td><c:out value="${roastery.name}"/></td>
-                            <td><c:out value="${roastery.city}"/></td>
-                            <td><c:out value="${roastery.address}"/></td>
-                            <td><table><c:forEach items="${roastery.shipments}" var="shipment"/>
-                                <tr>
-                                    <td><c:out value="${shipment.shipmentType.name}"/></td>
-                                    <td><c:out value="${shipment.price}"/></td>
-                                </tr>
-                            </table></td>
-                            <td><a href='<c:url value="/admin/roasteries/edit/${roastery.id}"/>'>Edytuj</a> 
-                            <a href='<c:url value="/admin/roasteries/confirm?id=${roastery.id}"/>'>Usuń</a></td>
+                            <td><c:out value="${coffee.name}"/></td>
+                            <td><c:out value="${coffee.country.name}"/></td>
+                            <td><c:out value="${coffee.roast.displayName}"/></td>
+                            <td><c:out value="${coffee.composition.displayName}"/></td>
+                            <td><c:out value="${coffee.roastery.name}"/></td>
+                            <td><c:out value="${coffee.roastery.city}"/></td>
+                            <td><c:out value="${coffee.price}"/></td>
+                            <td><c:out value="${coffee.active}"/></td>
+                            <td><a href='<c:url value="/admin/coffees/edit/${coffee.id}"/>'>Edytuj</a> 
+                            <a href='<c:url value="/admin/coffees/confirm?id=${coffee.id}"/>'>Usuń</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
                 </table>
                 <div><br>
-                    <button><a href='<c:url value="/admin/roasteries/add"/>'>Dodaj palarnię</a></button>
+                    <button><a href='<c:url value="/admin/coffees/add"/>'>Dodaj kawę</a></button>
                 </div>
 
 

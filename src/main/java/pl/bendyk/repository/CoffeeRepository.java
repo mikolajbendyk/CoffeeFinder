@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface CoffeeRepository extends JpaRepository<Coffee, Long> {
 
-    List<Coffee> findAll();
+    List<Coffee> findAllByOrderByName();
     Optional<Coffee> findById(Long id);
     Coffee save(Coffee coffee);
     void deleteById(Long id);

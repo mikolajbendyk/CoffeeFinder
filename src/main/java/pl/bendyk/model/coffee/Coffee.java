@@ -18,11 +18,12 @@ public class Coffee {
     private Double price;
     @Column(length = 2000)
     private String description;
+    private String imageSrc;
     private Composition composition;
     private Process process;
     private Roast roast;
-    @ManyToMany
-    private List<Volume> volumes;
+    @ManyToOne
+    private Volume volume;
     @ManyToMany
     private List<Species> species;
     @ManyToMany

@@ -119,7 +119,7 @@
                             </c:forEach></td>
                         </tr>
                         <tr>
-                            <td>Single / Blend</td>
+                            <td>Single/Blend</td>
                             <td><c:forEach items="${compositions}" var="composition">
                                 <form:checkbox path="composition" label=" ${composition.displayName}"
                                                value="${composition}"/><br>
@@ -132,10 +132,13 @@
                             </c:forEach></td>
                         </tr>
                         <tr>
-                            <td>Wielkości opakowań</td>
-                            <td><c:forEach items="${volumes}" var="volume">
-                                <form:checkbox path="volumes" label=" ${volume.grams}" value="${volume}"/><br>
-                            </c:forEach></td>
+                            <td>Wielkość opakowania</td>
+                            <td>
+                                <form:select path="volume">
+                                    <form:option value="" label="Wybierz wielkość"/>
+                                    <form:options items="${volumes}" itemLabel="grams"/>
+                                </form:select>
+                            </td>
                         </tr>
                         <tr>
                             <td>Opis</td>
@@ -146,6 +149,14 @@
                             <td><form:radiobutton path="active" value="true"/> Tak<br>
                                 <form:radiobutton path="active" value="false"/> Nie
                             </td>
+                        </tr>
+                        <tr>
+                            <td>Link do oferty</td>
+                            <td><form:input path="link"/></td>
+                        </tr>
+                        <tr>
+                            <td>Link do zdjęcia</td>
+                            <td><form:input path="imageSrc"/></td>
                         </tr>
                         </tbody>
                     </table>

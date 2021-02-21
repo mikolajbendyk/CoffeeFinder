@@ -105,7 +105,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Gatunki kawy</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Gatunki<br>kawy</div>
                                         </div>
                                     </div>
                                 </div>
@@ -119,21 +119,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Metody parzenia</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <a href='<c:url value="/admin/flavours/all"/>'>
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Nuty smakowe</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Metody<br>parzenia</div>
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +147,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Sposoby wysyłki</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">Sposoby<br>wysyłki</div>
                                         </div>
                                     </div>
                                 </div>

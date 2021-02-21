@@ -53,7 +53,7 @@ public class VolumeController {
 
     @RequestMapping("/confirm")
     public String confirm(@RequestParam Long id) {
-        if (coffeeRepository.existsByVolumesId(id)) {
+        if (coffeeRepository.existsByVolumeId(id)) {
             return "admin/volumes/confirmIfCoffee";
         }
         return "admin/volumes/confirm";

@@ -70,7 +70,7 @@
                     <th>Nazwa</th>
                     <th>Kraj pochodzenia</th>
                     <th>Wypalenie</th>
-                    <th>Single / Blend</th>
+                    <th>Single/Blend</th>
                     <th>Palarnia</th>
                     <th>Miasto</th>
                     <th>Cena</th>
@@ -88,7 +88,7 @@
                             <td><c:out value="${coffee.roastery.name}"/></td>
                             <td><c:out value="${coffee.roastery.city}"/></td>
                             <td><c:out value="${coffee.price}"/></td>
-                            <td><c:out value="${coffee.active}"/></td>
+                            <td><c:out value="${coffee.active ? 'Tak' : 'Nie'}"/></td>
                             <td><a href='<c:url value="/admin/coffees/edit/${coffee.id}"/>'>Edytuj</a> 
                             <a href='<c:url value="/admin/coffees/confirm?id=${coffee.id}"/>'>Usuń</a></td>
                         </tr>

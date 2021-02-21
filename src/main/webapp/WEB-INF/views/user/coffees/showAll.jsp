@@ -24,6 +24,11 @@
     <!-- Custom styles for this template-->
     <link href='<c:url value="/theme/css/sb-admin-2.min.css"/>' rel="stylesheet">
 
+    <style>
+        img {
+            width: 80%;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -32,164 +37,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-text mx-3">Coffee Finder</div>
-        </a>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Sortowanie
-        </div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <span>Cena rosnąco</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <span>Cena malejąco</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <span>Cena z wysyłką rosnąco</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <span>Cena z wysyłką malejąco</span>
-            </a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Filtrowanie
-        </div>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#roastery">
-                <span>Palarnia</span>
-            </a>
-            <div id="roastery" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                </div>
-            </div>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#countryOfOrigin">
-                <span>Kraj pochodzenia</span>
-            </a>
-            <div id="countryOfOrigin" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                </div>
-            </div>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#brewingMethod">
-                <span>Metoda parzenia</span>
-            </a>
-            <div id="brewingMethod" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                </div>
-            </div>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#roast">
-                <span>Stopień wypalenia</span>
-            </a>
-            <div id="roast" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                </div>
-            </div>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#process">
-                <span>Obróbka</span>
-            </a>
-            <div id="process" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                </div>
-            </div>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#composition">
-                <span>Single / Blend</span>
-            </a>
-            <div id="composition" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                </div>
-            </div>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#volume">
-                <span>Wielkość opakowania</span>
-            </a>
-            <div id="volume" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                </div>
-            </div>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#shipment">
-                <span>Sposób wysyłki</span>
-            </a>
-            <div id="shipment" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                </div>
-            </div>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#city">
-                <span>Miasto palarni</span>
-            </a>
-            <div id="city" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                </div>
-            </div>
-        </li>
-
-
-    </ul>
+    <%@ include file="../../fragments/sidebar_user.jsp" %>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -208,95 +56,36 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Kawy</h1>
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Wyczyść filtry</a>
+                    <a href='<c:url value="/"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Wyczyść
+                        filtry</a>
                 </div>
 
                 <!-- Content Row -->
                 <div class="row">
 
                     <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Earnings (Monthly)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-success shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            Earnings (Annual)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-info shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                        </div>
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col-auto">
-                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                    <c:forEach items="${coffees}" var="coffee">
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div><img src='<c:url value="${coffee.imageSrc}"/>'>
                                             </div>
-                                            <div class="col">
-                                                <div class="progress progress-sm mr-2">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                         style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                         aria-valuemax="100"></div>
-                                                </div>
+                                            <div class="text-lg font-weight-bold text-primary text-uppercase mb-1">
+                                                ${coffee.name}
                                             </div>
+                                            <div class="h5 mb-2 font-weight-bold text-gray-800">${coffee.roastery.name}
+                                            </div>
+                                            <div class="h6 mb-1 font-weight-normal text-gray-800">${coffee.volume.grams} g</div>
+                                            <div class="h6 mb-0 font-weight-normal text-gray-800">${coffee.price} zł</div>
                                         </div>
                                     </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Pending Requests Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-warning shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            Pending Requests</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    </c:forEach>
                 </div>
 
 

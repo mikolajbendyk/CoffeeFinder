@@ -15,41 +15,29 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Sortowanie
-    </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <span>Cena rosnąco</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <span>Cena malejąco</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <span>Cena z wysyłką rosnąco</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <span>Cena z wysyłką malejąco</span>
-        </a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
         Filtrowanie
     </div>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sort">
+            <span>Sortuj</span>
+        </a>
+        <div id="sort" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="#">Cena rosnąco</a>
+            </div>
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="#">Cena malejąco</a>
+            </div>
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="#">Cena z wysyłką rosnąco</a>
+            </div>
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="#">Cena z wysyłką malejąco</a>
+            </div>
+        </div>
+    </li>
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#roastery">
@@ -58,7 +46,7 @@
         <div id="roastery" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="#">Colors</a>
             </div>
         </div>
     </li>
@@ -70,7 +58,7 @@
         <div id="countryOfOrigin" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="#">Colors</a>
             </div>
         </div>
     </li>
@@ -82,7 +70,7 @@
         <div id="brewingMethod" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="#">Colors</a>
             </div>
         </div>
     </li>
@@ -94,7 +82,7 @@
         <div id="roast" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="#">Colors</a>
             </div>
         </div>
     </li>
@@ -106,7 +94,7 @@
         <div id="depulpingProcess" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="#">Colors</a>
             </div>
         </div>
     </li>
@@ -118,7 +106,7 @@
         <div id="composition" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="#">Colors</a>
             </div>
         </div>
     </li>
@@ -130,7 +118,7 @@
         <div id="volume" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="#">Colors</a>
             </div>
         </div>
     </li>
@@ -142,7 +130,7 @@
         <div id="shipment" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="#">Colors</a>
             </div>
         </div>
     </li>
@@ -154,7 +142,7 @@
         <div id="city" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="#">Colors</a>
             </div>
         </div>
     </li>

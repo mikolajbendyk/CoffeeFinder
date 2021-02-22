@@ -28,6 +28,9 @@
         img {
             height: 200px;
         }
+        form {
+            padding: 0.6rem;
+        }
     </style>
 </head>
 

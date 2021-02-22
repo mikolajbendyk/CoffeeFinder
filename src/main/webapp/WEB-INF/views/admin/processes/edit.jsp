@@ -25,10 +25,11 @@
     <link href='<c:url value="/theme/css/sb-admin-2.min.css"/>' rel="stylesheet">
 
     <style>
-        img {
-            width: 80%;
+        th, td {
+            padding: 8px;
         }
     </style>
+
 </head>
 
 <body id="page-top">
@@ -37,7 +38,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <%@ include file="../../fragments/sidebar_user.jsp" %>
+    <%@ include file="../../fragments/sidebar_admin.jsp" %>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -55,38 +56,25 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Kawy</h1>
-                    <a href='<c:url value="/"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Wyczyść
-                        filtry</a>
+                    <h1 class="h3 mb-0 text-gray-800">Procesy obróbki</h1>
+                    <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel zarządzania</a>
                 </div>
 
                 <!-- Content Row -->
-                <div class="row">
 
-                    <!-- Earnings (Monthly) Card Example -->
-
-                    <c:forEach items="${coffees}" var="coffee">
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div><img src='<c:url value="${coffee.imageSrc}"/>'>
-                                            </div>
-                                            <div class="text-lg font-weight-bold text-primary text-uppercase mb-1">
-                                                ${coffee.name}
-                                            </div>
-                                            <div class="h5 mb-2 font-weight-bold text-gray-800">${coffee.roastery.name}
-                                            </div>
-                                            <div class="h6 mb-1 font-weight-normal text-gray-800">${coffee.volume.grams} g</div>
-                                            <div class="h6 mb-0 font-weight-normal text-gray-800">${coffee.price} zł</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
-                </div>
+                    <form:form method="post" modelAttribute="depulpingProcess">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>Nazwa procesu</td>
+                                <td><form:hidden path="id"></form:hidden>
+                                    <form:input path="name"></form:input></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <input type="submit" value="Zapisz">
+                    </form:form>
 
 
             </div>
@@ -127,6 +115,7 @@
 <!-- Page level custom scripts -->
 <script src='<c:url value="/theme/js/demo/chart-area-demo.js"/>'></script>
 <script src='<c:url value="/theme/js/demo/chart-pie-demo.js"/>'></script>
+
 
 </body>
 

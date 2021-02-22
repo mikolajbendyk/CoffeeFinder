@@ -72,10 +72,6 @@
                             <td><form:input path="name"/></td>
                         </tr>
                         <tr>
-                            <td>Cena</td>
-                            <td><form:input path="price"/></td>
-                        </tr>
-                        <tr>
                             <td>Kraj pochodzenia</td>
                             <td>
                                 <form:select path="country.id">
@@ -87,9 +83,9 @@
                         <tr>
                             <td>Obróbka</td>
                             <td>
-                                <form:select path="process">
+                                <form:select path="depulpingProcess">
                                     <form:option value="" label="Wybierz obróbkę"/>
-                                    <form:options items="${processes}" itemLabel="displayName"/>
+                                    <form:options items="${processes}" itemLabel="name" itemValue="id"/>
                                 </form:select>
                             </td>
                         </tr>
@@ -139,6 +135,10 @@
                                     <form:options items="${volumes}" itemLabel="grams"/>
                                 </form:select>
                             </td>
+                        </tr>
+                        <tr>
+                            <td>Cena</td>
+                            <td><form:input path="price"/></td>
                         </tr>
                         <tr>
                             <td>Opis</td>

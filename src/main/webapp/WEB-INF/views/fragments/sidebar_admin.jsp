@@ -47,6 +47,12 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link" href='<c:url value="/admin/processes/all"/>'>
+            <span>Procesy obróbki</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" href='<c:url value="/admin/volumes/all"/>'>
             <span>Wielkości opakowań</span>
         </a>

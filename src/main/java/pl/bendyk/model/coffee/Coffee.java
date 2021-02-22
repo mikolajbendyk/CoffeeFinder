@@ -20,7 +20,8 @@ public class Coffee {
     private String description;
     private String imageSrc;
     private Composition composition;
-    private Process process;
+    @ManyToOne
+    private DepulpingProcess depulpingProcess;
     private Roast roast;
     @ManyToOne
     private Volume volume;

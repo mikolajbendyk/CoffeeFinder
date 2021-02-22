@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.bendyk.model.coffee.Coffee;
 import pl.bendyk.repository.*;
-import pl.bendyk.model.coffee.Process;
 import pl.bendyk.model.coffee.Roast;
 import pl.bendyk.model.coffee.Composition;
 
@@ -24,17 +23,19 @@ public class CoffeeController {
     private final MethodRepository methodRepository;
     private final SpeciesRepository speciesRepository;
     private final VolumeRepository volumeRepository;
+    private final DepulpingProcessRepository depulpingProcessRepository;
 
     public CoffeeController(CoffeeRepository coffeeRepository, CountryRepository countryRepository,
                             RoasteryRepository roasteryRepository, MethodRepository methodRepository,
-                            SpeciesRepository speciesRepository,
-                            VolumeRepository volumeRepository) {
+                            SpeciesRepository speciesRepository, VolumeRepository volumeRepository,
+                            DepulpingProcessRepository depulpingProcessRepository) {
         this.coffeeRepository = coffeeRepository;
         this.countryRepository = countryRepository;
         this.roasteryRepository = roasteryRepository;
         this.methodRepository = methodRepository;
         this.speciesRepository = speciesRepository;
         this.volumeRepository = volumeRepository;
+        this.depulpingProcessRepository = depulpingProcessRepository;
     }
 
     @RequestMapping("/all")
@@ -47,7 +48,7 @@ public class CoffeeController {
     @GetMapping("/add")
     public String getAddForm(Coffee coffee, Model model) {
         model.addAttribute("countries", countryRepository.findAllByOrderByName());
-        model.addAttribute("processes", Process.values());
+        model.addAttribute("processes", depulpingProcessRepository.findAll());
         model.addAttribute("roasteries", roasteryRepository.findAllByOrderByName());
         model.addAttribute("roasts", Roast.values());
         model.addAttribute("methods", methodRepository.findAll());
@@ -67,7 +68,7 @@ public class CoffeeController {
     public String getEditForm(@PathVariable Long id, Model model) {
         model.addAttribute("coffee", coffeeRepository.findById(id));
         model.addAttribute("countries", countryRepository.findAllByOrderByName());
-        model.addAttribute("processes", Process.values());
+        model.addAttribute("processes", depulpingProcessRepository.findAll());
         model.addAttribute("roasteries", roasteryRepository.findAllByOrderByName());
         model.addAttribute("roasts", Roast.values());
         model.addAttribute("methods", methodRepository.findAll());

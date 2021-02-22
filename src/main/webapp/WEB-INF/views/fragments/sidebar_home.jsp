@@ -100,10 +100,10 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#process">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#depulpingProcess">
             <span>Obróbka</span>
         </a>
-        <div id="process" class="collapse" aria-labelledby="headingUtilities"
+        <div id="depulpingProcess" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="utilities-color.html">Colors</a>

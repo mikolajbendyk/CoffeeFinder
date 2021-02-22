@@ -16,8 +16,8 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home(Model model) {
-        model.addAttribute("coffees", coffeeRepository.findAll());
-        return "user/coffees/showAll";
+        model.addAttribute("coffees", coffeeRepository.findAllByActiveTrue());
+        return "home/coffees/showAll";
     }
 
 }

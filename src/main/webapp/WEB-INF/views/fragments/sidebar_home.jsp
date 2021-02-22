@@ -18,26 +18,34 @@
         Filtrowanie
     </div>
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sort">
-            <span>Sortuj</span>
-        </a>
-        <div id="sort" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Cena rosnąco</a>
+    <form method="post">
+        <li class="nav-item">
+            <select name="sort">
+                <option value="">Sortuj</option>
+                <option value="priceAsc">Cena rosnąco</option>
+                <option value="priceDesc">Cena malejąco</option>
+            </select>
+            <br>
+            <br>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#roastery-test">
+                <span>Palarnia</span>
+            </a>
+        <c:forEach items="${roasteries}" var="roastery">
+            <div id="roastery-test" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                      <input type="checkbox" name="roasteriesIds" value="${roastery.id}">  ${roastery.name}
+                </div>
             </div>
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Cena malejąco</a>
-            </div>
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Cena z wysyłką rosnąco</a>
-            </div>
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Cena z wysyłką malejąco</a>
-            </div>
-        </div>
-    </li>
+        </c:forEach>
+        </li>
+
+            <br>
+            <br>
+            <input type="submit" value="Wyślij">
+        </li>
+    </form>
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#roastery">
@@ -104,6 +112,18 @@
             <span>Single / Blend</span>
         </a>
         <div id="composition" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="#">Colors</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#species">
+            <span>Gatunek</span>
+        </a>
+        <div id="species" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="#">Colors</a>

@@ -2,6 +2,7 @@ package pl.bendyk.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,8 @@ import pl.bendyk.model.others.ShipmentType;
 import pl.bendyk.repository.RoasteryRepository;
 import pl.bendyk.repository.ShipmentRepository;
 import pl.bendyk.repository.ShipmentTypeRepository;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/admin/roasteries/{roasteryId}/shipments")
@@ -33,7 +36,11 @@ public class ShipmentController {
     }
 
     @PostMapping("/add")
-    public String postAddForm(@PathVariable Long roasteryId, Shipment shipment) {
+    public String postAddForm(@PathVariable Long roasteryId, @Valid Shipment shipment, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("shipmentTypes", shipmentTypeRepository.findAll());
+            return "admin/shipments/add";
+        }
         shipment.setRoastery(roasteryRepository.getOne(roasteryId));
         shipmentRepository.save(shipment);
         return "redirect:/admin/roasteries/edit/{roasteryId}";
@@ -47,9 +54,11 @@ public class ShipmentController {
     }
 
     @PostMapping("edit/{id}")
-    public String postEditForm(@PathVariable Long roasteryId, Shipment shipment) {
-//        shipmentTypeRepository.save(shipmentType);
-//        shipment.setShipmentType(shipmentType);
+    public String postEditForm(@PathVariable Long roasteryId, @Valid Shipment shipment, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("shipmentTypes", shipmentTypeRepository.findAll());
+            return "admin/shipments/edit/" + roasteryId;
+        }
         shipment.setRoastery(roasteryRepository.getOne(roasteryId));
         shipmentRepository.save(shipment);
         return "redirect:/admin/roasteries/edit/{roasteryId}";

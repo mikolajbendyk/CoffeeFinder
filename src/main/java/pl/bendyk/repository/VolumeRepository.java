@@ -11,6 +11,7 @@ import java.util.Optional;
 public interface VolumeRepository extends JpaRepository<Volume, Long> {
 
     List<Volume> findAll();
+    List<Volume> findAllByOrderByGrams();
     Optional<Volume> findById(Long id);
     Volume save(Volume volume);
     void deleteById(Long id);

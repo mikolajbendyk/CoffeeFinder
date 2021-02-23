@@ -2,12 +2,14 @@ package pl.bendyk.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.coffee.Method;
 import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.CountryRepository;
 import pl.bendyk.repository.MethodRepository;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -35,7 +37,10 @@ public class MethodController {
     }
 
     @PostMapping("/add")
-    public String postAddForm(Method method) {
+    public String postAddForm(@Valid Method method, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/methods/add";
+        }
         methodRepository.save(method);
         return "redirect:/admin/methods/all";
     }
@@ -47,7 +52,10 @@ public class MethodController {
     }
 
     @PostMapping("edit/{id}")
-    public String postEditForm(Method method) {
+    public String postEditForm(@Valid Method method, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/methods/edit";
+        }
         methodRepository.save(method);
         return "redirect:/admin/methods/all";
     }

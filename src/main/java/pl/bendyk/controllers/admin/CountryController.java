@@ -2,11 +2,13 @@ package pl.bendyk.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.others.Country;
 import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.CountryRepository;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -34,7 +36,10 @@ public class CountryController {
     }
 
     @PostMapping("/add")
-    public String postAddForm(Country country) {
+    public String postAddForm(@Valid Country country, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/countries/add";
+        }
         countryRepository.save(country);
         return "redirect:/admin/countries/all";
     }
@@ -46,7 +51,10 @@ public class CountryController {
     }
 
     @PostMapping("edit/{id}")
-    public String postEditForm(Country country) {
+    public String postEditForm(@Valid Country country, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/countries/edit";
+        }
         countryRepository.save(country);
         return "redirect:/admin/countries/all";
     }

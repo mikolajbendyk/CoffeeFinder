@@ -2,11 +2,13 @@ package pl.bendyk.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.coffee.DepulpingProcess;
 import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.DepulpingProcessRepository;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -34,7 +36,10 @@ public class DepulpingProcessController {
     }
 
     @PostMapping("/add")
-    public String postAddForm(DepulpingProcess depulpingProcess) {
+    public String postAddForm(@Valid DepulpingProcess depulpingProcess, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/processes/add";
+        }
         depulpingProcessRepository.save(depulpingProcess);
         return "redirect:/admin/processes/all";
     }
@@ -46,7 +51,10 @@ public class DepulpingProcessController {
     }
 
     @PostMapping("edit/{id}")
-    public String postEditForm(DepulpingProcess depulpingProcess) {
+    public String postEditForm(@Valid DepulpingProcess depulpingProcess, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/processes/add";
+        }
         depulpingProcessRepository.save(depulpingProcess);
         return "redirect:/admin/processes/all";
     }

@@ -11,6 +11,7 @@ import java.util.Optional;
 public interface MethodRepository extends JpaRepository<Method, Long> {
 
     List<Method> findAll();
+    List<Method> findAllByOrderByName();
     Optional<Method> findById(Long id);
     Method save(Method method);
     void deleteById(Long id);

@@ -2,11 +2,13 @@ package pl.bendyk.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.others.ShipmentType;
 import pl.bendyk.repository.ShipmentRepository;
 import pl.bendyk.repository.ShipmentTypeRepository;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -34,7 +36,10 @@ public class ShipmentTypeController {
     }
 
     @PostMapping("/add")
-    public String postAddForm(ShipmentType shipmentType) {
+    public String postAddForm(@Valid ShipmentType shipmentType, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/shipmentTypes/add";
+        }
         shipmentTypeRepository.save(shipmentType);
         return "redirect:/admin/shipment-types/all";
     }
@@ -46,7 +51,10 @@ public class ShipmentTypeController {
     }
 
     @PostMapping("edit/{id}")
-    public String postEditForm(ShipmentType shipmentType) {
+    public String postEditForm(@Valid ShipmentType shipmentType, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/shipmentTypes/add";
+        }
         shipmentTypeRepository.save(shipmentType);
         return "redirect:/admin/shipment-types/all";
     }

@@ -2,11 +2,14 @@ package pl.bendyk.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.others.Roastery;
 import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.RoasteryRepository;
 import pl.bendyk.repository.ShipmentRepository;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/admin/roasteries")
@@ -34,9 +37,12 @@ public class RoasteryController {
     }
 
     @PostMapping("/add")
-    public String postAddForm(Roastery roastery) {
+    public String postAddForm(@Valid Roastery roastery, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/roasteries/add";
+        }
         roasteryRepository.save(roastery);
-        return "redirect:/admin/roasteries/all";
+        return "redirect:/admin/roasteries/edit/" + roastery.getId();
     }
 
     @GetMapping("/edit/{id}")
@@ -47,7 +53,10 @@ public class RoasteryController {
     }
 
     @PostMapping("edit/{id}")
-    public String postEditForm(Roastery roastery) {
+    public String postEditForm(@Valid Roastery roastery, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/roasteries/edit";
+        }
         roasteryRepository.save(roastery);
         return "redirect:/admin/roasteries/all";
     }

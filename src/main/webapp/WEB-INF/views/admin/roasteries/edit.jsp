@@ -63,21 +63,21 @@
 
                 <!-- Content Row -->
 
-                <form:hidden path="id"></form:hidden>
                 <form:form method="post" modelAttribute="roastery">
+                    <form:hidden path="id"/>
                     <table>
                         <tbody>
                         <tr>
                             <td>Nazwa palarni</td>
-                            <td><form:input path="name"></form:input></td>
+                            <td><form:input path="name"/>   <form:errors path="name" cssClass="error"/></td>
                         </tr>
                         <tr>
                             <td>Miasto</td>
-                            <td><form:input path="city"></form:input></td>
+                            <td><form:input path="city"/>   <form:errors path="city" cssClass="error"/></td>
                         </tr>
                         <tr>
                             <td>Adres</td>
-                            <td><form:input path="address"></form:input></td>
+                            <td><form:input path="address"/>   <form:errors path="address" cssClass="error"/></td>
                         </tr>
                     </table>
                     <br>

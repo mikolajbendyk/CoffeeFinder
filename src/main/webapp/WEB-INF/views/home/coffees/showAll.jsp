@@ -78,7 +78,7 @@
                                             <div class="text-lg font-weight-bold text-primary text-uppercase mb-1">
                                                 ${coffee.name}
                                             </div>
-                                            <a href='<c:url value="${coffee.link}"/>'><div class="h5 mb-2 font-weight-bold text-gray-800">${coffee.roastery.name}
+                                            <a href='<c:url value="${coffee.link}"/>' target="_blank"><div class="h5 mb-2 font-weight-bold text-gray-800">${coffee.roastery.name}
                                             </div></a>
                                             <div class="h6 mb-1 font-weight-normal text-gray-800">${coffee.volume.grams} g</div>
                                             <div class="h6 mb-0 font-weight-normal text-gray-800">${coffee.price} zł</div>

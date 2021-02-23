@@ -20,152 +20,155 @@
 
     <form method="post">
         <li class="nav-item">
-            <select name="sort">
-                <option value="">Sortuj</option>
-                <option value="priceAsc">Cena rosnąco</option>
-                <option value="priceDesc">Cena malejąco</option>
-            </select>
-            <br>
-            <br>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#roastery-test">
-                <span>Palarnia</span>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sort">
+                <span>Sortuj</span>
             </a>
-        <c:forEach items="${roasteries}" var="roastery">
-            <div id="roastery-test" class="collapse" aria-labelledby="headingUtilities"
+            <div id="sort" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                      <input type="checkbox" name="roasteriesIds" value="${roastery.id}">  ${roastery.name}
+                      <input type="radio" name="sort" value="priceAsc">  Cena rosnąco<br>
+                </div>
+                <div class="bg-white py-2 collapse-inner rounded">
+                      <input type="radio" name="sort" value="priceDesc">  Cena malejąco
                 </div>
             </div>
-        </c:forEach>
         </li>
 
-            <br>
-            <br>
-            <input type="submit" value="Wyślij">
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#roastery">
+                <span>Palarnia</span>
+            </a>
+                <div id="roastery" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <c:forEach items="${roasteries}" var="roastery">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                          <input type="checkbox" name="roasteriesIds" value="${roastery.id}">  ${roastery.name}
+                    </div>
+                    </c:forEach>
+                </div>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#country">
+                <span>Kraj pochodzenia</span>
+            </a>
+            <div id="country" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <c:forEach items="${countries}" var="country">
+                <div class="bg-white py-2 collapse-inner rounded">
+                      <input type="checkbox" name="countriesIds" value="${country.id}">  ${country.name}
+                </div>
+                </c:forEach>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#method">
+                <span>Metoda parzenia</span>
+            </a>
+            <div id="method" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <c:forEach items="${methods}" var="method">
+                <div class="bg-white py-2 collapse-inner rounded">
+                      <input type="checkbox"
+<%--                             <c:if test="${params.method.id}"--%>
+                             name="methodsIds" value="${method.id}">  ${method.name}
+                </div>
+                </c:forEach>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#roast">
+                <span>Wypalenie</span>
+            </a>
+            <div id="roast" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <c:forEach items="${roasts}" var="roast">
+                <div class="bg-white py-2 collapse-inner rounded">
+                      <input type="checkbox" name="roasts" value="${roast.ordinal()}">  ${roast.displayName}
+                </div>
+                </c:forEach>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#depulpingProcess">
+                <span>Obróbka</span>
+            </a>
+            <div id="depulpingProcess" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <c:forEach items="${depulpingProcesses}" var="depulpingProcess">
+                <div class="bg-white py-2 collapse-inner rounded">
+                      <input type="checkbox" name="depulpingProcessesIds" value="${depulpingProcess.id}">  ${depulpingProcess.name}
+                </div>
+                </c:forEach>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#composition">
+                <span>Single / Blend</span>
+            </a>
+            <div id="composition" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <c:forEach items="${compositions}" var="composition">
+                <div class="bg-white py-2 collapse-inner rounded">
+                      <input type="checkbox" name="compositions" value="${composition.ordinal()}">  ${composition.displayName}
+                </div>
+                </c:forEach>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#species">
+                <span>Gatunek</span>
+            </a>
+            <div id="species" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <c:forEach items="${species}" var="species">
+                <div class="bg-white py-2 collapse-inner rounded">
+                      <input type="checkbox" name="speciesIds" value="${species.id}">  ${species.name}
+                </div>
+                </c:forEach>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#volume">
+                <span>Wielkość opakowania</span>
+            </a>
+            <div id="volume" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <c:forEach items="${volumes}" var="volume">
+                <div class="bg-white py-2 collapse-inner rounded">
+                      <input type="checkbox" name="volumesIds" value="${volume.id}">  ${volume.grams}
+                </div>
+                </c:forEach>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#shipmentType">
+                <span>Sposób wysyłki</span>
+            </a>
+            <div id="shipmentType" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <c:forEach items="${shipmentTypes}" var="shipmentType">
+                <div class="bg-white py-2 collapse-inner rounded">
+                      <input type="checkbox" name="shipmentTypesIds" value="${shipmentType.id}">  ${shipmentType.name}
+                </div>
+                </c:forEach>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#city">
+                <span>Miasto palarni</span>
+            </a>
+            <div id="city" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <c:forEach items="${cities}" var="city">
+                <div class="bg-white py-2 collapse-inner rounded">
+                      <input type="checkbox" name="cities" value="${city}">  ${city}
+                </div>
+                </c:forEach>
+            </div>
+        </li>
+
+            <input type="submit" value="Wyślij">
     </form>
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#roastery">
-            <span>Palarnia</span>
-        </a>
-        <div id="roastery" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Colors</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#countryOfOrigin">
-            <span>Kraj pochodzenia</span>
-        </a>
-        <div id="countryOfOrigin" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Colors</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#brewingMethod">
-            <span>Metoda parzenia</span>
-        </a>
-        <div id="brewingMethod" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Colors</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#roast">
-            <span>Wypalenie</span>
-        </a>
-        <div id="roast" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Colors</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#depulpingProcess">
-            <span>Obróbka</span>
-        </a>
-        <div id="depulpingProcess" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Colors</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#composition">
-            <span>Single / Blend</span>
-        </a>
-        <div id="composition" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Colors</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#species">
-            <span>Gatunek</span>
-        </a>
-        <div id="species" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Colors</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#volume">
-            <span>Wielkość opakowania</span>
-        </a>
-        <div id="volume" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Colors</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#shipment">
-            <span>Sposób wysyłki</span>
-        </a>
-        <div id="shipment" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Colors</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#city">
-            <span>Miasto palarni</span>
-        </a>
-        <div id="city" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Colors</a>
-            </div>
-        </div>
-    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -174,12 +177,6 @@
     <div class="sidebar-heading">
         Zarządzanie
     </div>
-
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <span>Palarnia</span>
-        </a>
-    </li>
 
     <li class="nav-item">
         <a class="nav-link" href='<c:url value="/admin"/>'>

@@ -11,6 +11,7 @@ import java.util.Optional;
 public interface ShipmentTypeRepository extends JpaRepository<ShipmentType, Long> {
 
     List<ShipmentType> findAll();
+    List<ShipmentType> findAllByOrderByName();
     Optional<ShipmentType> findById(Long id);
     ShipmentType save(ShipmentType shipmentType);
     void deleteById(Long id);

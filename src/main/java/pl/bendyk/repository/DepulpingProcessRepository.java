@@ -11,6 +11,7 @@ import java.util.Optional;
 public interface DepulpingProcessRepository extends JpaRepository<DepulpingProcess, Long> {
 
     List<DepulpingProcess> findAll();
+    List<DepulpingProcess> findAllByOrderByName();
     Optional<DepulpingProcess> findById(Long id);
     DepulpingProcess save(DepulpingProcess depulpingProcess);
     void deleteById(Long id);

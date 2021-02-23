@@ -67,7 +67,7 @@
                             <tbody>
                                 <tr>
                                     <td>Nazwa metody</td>
-                                    <td><form:input path="name"></form:input></td>
+                                    <td><form:input path="name"/>   <form:errors path="name" cssClass="error"/></td>
                                 </tr>
                             </tbody>
                         </table>

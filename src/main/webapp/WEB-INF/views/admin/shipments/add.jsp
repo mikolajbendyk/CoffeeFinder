@@ -72,7 +72,7 @@
                         </tr>
                         <tr>
                             <td>Cena</td>
-                            <td><form:input path="price"></form:input></td>
+                            <td><form:input path="price"/>   <form:errors path="price" cssClass="error"/></td>
                         </tr>
                         </tbody>
                     </table>

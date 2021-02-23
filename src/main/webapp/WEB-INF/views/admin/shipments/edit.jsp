@@ -75,7 +75,7 @@
                             <td>Cena</td>
                             <td>
 <%--                                <form:hidden path="id"></form:hidden>--%>
-                                <form:input path="price"></form:input></td>
+                                <form:input path="price"/>   <form:errors path="price" cssClass="error"/></td>
                         </tr>
                         </tbody>
                     </table>

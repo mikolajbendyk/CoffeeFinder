@@ -63,10 +63,16 @@
                 <!-- Content Row -->
 
                 Czy na pewno chcesz usunąć tę kawę?
-                <br><br>
-<%--                <form:hidden path="id" ></form:hidden>--%>
-                <button><a href="<c:url value="/admin/coffees/delete/${param.id}"/>">Tak</a></button>
-                <button><a href="<c:url value="/admin/coffees/all"/>">Nie</a></button>
+                <br>
+                <br>
+                <div>
+                    <a href='<c:url value="/admin/coffees/delete/${param.id}"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Tak</a>   
+                    <a href='<c:url value="/admin/coffees/all"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Nie</a>
+                </div>
 
 
             </div>

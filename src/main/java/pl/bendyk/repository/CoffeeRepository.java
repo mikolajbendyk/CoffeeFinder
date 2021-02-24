@@ -13,10 +13,15 @@ import java.util.Optional;
 public interface CoffeeRepository extends JpaRepository<Coffee, Long> {
 
     List<Coffee> findAll();
-    List<Coffee> findAllByOrderByName();
     Optional<Coffee> findById(Long id);
     Coffee save(Coffee coffee);
     void deleteById(Long id);
+
+    List<Coffee> findAllByOrderByName();
+    List<Coffee> findAllByOrderByCountry();
+    @Query(value = "select c.* from coffees c join roasteries r on c.roastery_id = r.id order by r.name;", nativeQuery = true)
+    List<Coffee> findAllByOrderByRoastery();
+    List<Coffee> findAllByOrderByActive();
 
     boolean existsByRoasteryId(Long id);
     boolean existsByCountryId(Long id);

@@ -57,15 +57,19 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Wielkości opakowań</h1>
-                    <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel zarządzania</a>
+                    <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel
+                        zarządzania</a>
                 </div>
 
                 <!-- Content Row -->
 
                 Do tej wielkości są przypisane kawy. Nie możesz jej usunąć.
                 <br><br>
-                <button><a href="<c:url value="/admin/volumes/all"/>">Powrót</a></button>
-
+                <div>
+                    <a href='<c:url value="/admin/volumes/all"/>'
+                        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    Powrót</a>
+                </div>
 
             </div>
             <!-- /.container-fluid -->

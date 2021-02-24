@@ -69,15 +69,29 @@
                         <tbody>
                         <tr>
                             <td>Nazwa</td>
-                            <td><form:input path="name"/></td>
+                            <td>
+                                <form:input path="name"/>
+                                   <form:errors path="name" cssClass="error"/>
+                            </td>
                         </tr>
                         <tr>
                             <td>Kraj pochodzenia</td>
                             <td>
-                                <form:select path="country.id">
+                                <form:select path="country">
                                     <form:option value="" label="Wybierz kraj"/>
                                     <form:options items="${countries}" itemLabel="name" itemValue="id"/>
                                 </form:select>
+                                   <form:errors path="country" cssClass="error"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Palarnia</td>
+                            <td>
+                                <form:select path="roastery">
+                                    <form:option value="" label="Wybierz palarnię"/>
+                                    <form:options items="${roasteries}" itemLabel="name" itemValue="id"/>
+                                </form:select>
+                                   <form:errors path="roastery" cssClass="error"/>
                             </td>
                         </tr>
                         <tr>
@@ -87,16 +101,7 @@
                                     <form:option value="" label="Wybierz obróbkę"/>
                                     <form:options items="${processes}" itemLabel="name" itemValue="id"/>
                                 </form:select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Palarnia</td>
-                            <td>
-                                <form:select path="roastery.id">
-                                    <form:option value="" label="Wybierz palarnię"/>
-                                    <form:options items="${roasteries}" itemLabel="name"
-                                                  itemValue="id"/>
-                                </form:select>
+                                   <form:errors path="depulpingProcess" cssClass="error"/>
                             </td>
                         </tr>
                         <tr>
@@ -106,39 +111,52 @@
                                     <form:option value="" label="Wybierz wypalenie"/>
                                     <form:options items="${roasts}" itemLabel="displayName"/>
                                 </form:select>
+                                   <form:errors path="roast" cssClass="error"/>
                             </td>
                         </tr>
                         <tr>
                             <td>Metody parzenia</td>
-                            <td><c:forEach items="${methods}" var="method">
-                                <form:checkbox path="methods" label=" ${method.name}" value="${method}"/><br>
-                            </c:forEach></td>
-                        </tr>
-                        <tr>
-                            <td>Single/Blend</td>
-                            <td><c:forEach items="${compositions}" var="composition">
-                                <form:checkbox path="composition" label=" ${composition.displayName}"
-                                               value="${composition}"/><br>
-                            </c:forEach></td>
+                            <td>
+                                <c:forEach items="${methods}" var="method">
+                                    <form:checkbox path="methods" label=" ${method.name}" value="${method}"/><br>
+                                </c:forEach>
+                                <form:errors path="methods" cssClass="error" element="div"/>
+                            </td>
                         </tr>
                         <tr>
                             <td>Gatunki</td>
-                            <td><c:forEach items="${species}" var="species">
-                                <form:checkbox path="species" label=" ${species.name}" value="${species}"/><br>
-                            </c:forEach></td>
+                            <td>
+                                <c:forEach items="${species}" var="species">
+                                    <form:checkbox path="species" label=" ${species.name}" value="${species}"/><br>
+                                </c:forEach>
+                                <form:errors path="species" cssClass="error"/>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Wielkość opakowania</td>
+                            <td>Single / Blend</td>
+                            <td>
+                                <form:select path="composition">
+                                    <form:option value="" label="Wybierz"/>
+                                    <form:options items="${composition}" itemLabel="displayName"/>
+                                </form:select>
+                                   <form:errors path="composition" cssClass="error"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Wielkość opakowania [gr]</td>
                             <td>
                                 <form:select path="volume">
                                     <form:option value="" label="Wybierz wielkość"/>
                                     <form:options items="${volumes}" itemLabel="grams"/>
                                 </form:select>
+                                   <form:errors path="volume" cssClass="error"/>
                             </td>
                         </tr>
                         <tr>
                             <td>Cena</td>
-                            <td><form:input path="price"/></td>
+                            <td><form:input path="price"/>
+                                   <form:errors path="price" cssClass="error"/>
+                            </td>
                         </tr>
                         <tr>
                             <td>Opis</td>
@@ -152,11 +170,17 @@
                         </tr>
                         <tr>
                             <td>Link do oferty</td>
-                            <td><form:input path="link"/></td>
+                            <td>
+                                <form:input path="link"/>
+                                   <form:errors path="link" cssClass="error"/>
+                            </td>
                         </tr>
                         <tr>
                             <td>Link do zdjęcia</td>
-                            <td><form:input path="imageSrc"/></td>
+                            <td>
+                                <form:input path="imageSrc"/>
+                                   <form:errors path="imageSrc" cssClass="error"/>
+                            </td>
                         </tr>
                         </tbody>
                     </table>

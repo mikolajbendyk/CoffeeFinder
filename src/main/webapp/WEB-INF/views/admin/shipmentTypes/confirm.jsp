@@ -64,9 +64,14 @@
 
                 Czy na pewno chcesz usunąć ten sposób wysyłki?
                 <br><br>
-                <button><a href="<c:url value="/admin/shipment-types/delete/${param.id}"/>">Tak</a></button>
-                <button><a href="<c:url value="/admin/shipment-types/all"/>">Nie</a></button>
-
+                <div>
+                    <a href='<c:url value="/admin/shipment-types/delete/${param.id}"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Tak</a>   
+                    <a href='<c:url value="/admin/shipment-types/all"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Nie</a>
+                </div>
 
             </div>
             <!-- /.container-fluid -->

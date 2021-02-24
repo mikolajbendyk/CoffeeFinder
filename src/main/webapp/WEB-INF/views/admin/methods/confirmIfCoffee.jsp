@@ -63,8 +63,13 @@
                 <!-- Content Row -->
 
                 Do tej metody są przypisane kawy. Nie możesz jej usunąć.
-                <br><br>
-                <button><a href="<c:url value="/admin/methods/all"/>">Powrót</a></button>
+                <br>
+                <br>
+                <div>
+                    <a href='<c:url value="/admin/methods/all"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Powrót</a>
+                </div>
 
 
             </div>

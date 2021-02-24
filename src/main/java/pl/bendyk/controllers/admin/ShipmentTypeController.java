@@ -53,7 +53,7 @@ public class ShipmentTypeController {
     @PostMapping("edit/{id}")
     public String postEditForm(@Valid ShipmentType shipmentType, BindingResult result) {
         if (result.hasErrors()) {
-            return "admin/shipmentTypes/add";
+            return "admin/shipmentTypes/edit";
         }
         shipmentTypeRepository.save(shipmentType);
         return "redirect:/admin/shipment-types/all";

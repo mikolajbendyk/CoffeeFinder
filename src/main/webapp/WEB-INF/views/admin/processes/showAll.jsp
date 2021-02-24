@@ -25,6 +25,7 @@
             border: 1px solid;
             border-collapse: collapse;
         }
+
         th, td {
             padding: 12px;
         }
@@ -57,30 +58,38 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Procesy obróbki</h1>
-                    <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel zarządzania</a>
+                    <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel
+                        zarządzania</a>
                 </div>
 
                 <!-- Content Row -->
 
-                    <table>
-                        <thead>
-                        <th>Nr</th>
-                        <th>Proces</th>
-                        <th>Akcje</th>
-                        </thead>
-                        <tbody>
-                        <c:forEach items="${processes}" var="depulpingProcess" varStatus="loop">
-                            <tr>
-                                <td><c:out value="${loop.count}"/></td>
-                                <td><c:out value="${depulpingProcess.name}"/></td>
-                                <td><a href='<c:url value="/admin/processes/edit/${depulpingProcess.id}"/>'>Edytuj</a> 
-                                    <a href='<c:url value="/admin/processes/confirm?id=${depulpingProcess.id}"/>'>Usuń</a></td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                    <div><br>
-                    <button><a href='<c:url value="/admin/processes/add"/>'>Dodaj proces</a></button></div>
+                <table>
+                    <thead>
+                    <th>Nr</th>
+                    <th>Proces</th>
+                    <th>Akcje</th>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${processes}" var="depulpingProcess" varStatus="loop">
+                        <tr>
+                            <td><c:out value="${loop.count}"/></td>
+                            <td><c:out value="${depulpingProcess.name}"/></td>
+                            <td><a href='<c:url value="/admin/processes/edit/${depulpingProcess.id}"/>'>Edytuj</a> 
+                                <a href='<c:url value="/admin/processes/confirm?id=${depulpingProcess.id}"/>'>Usuń</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+                <br>
+                <div>
+                    <a href='<c:url value="/admin/processes/add"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Dodaj proces</a>
+                    <br>
+                    <br>
+                </div>
 
 
             </div>

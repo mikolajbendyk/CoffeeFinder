@@ -64,9 +64,14 @@
 
                 Czy na pewno chcesz usunąć ten proces?
                 <br><br>
-                <button><a href="<c:url value="/admin/processes/delete/${param.id}"/>">Tak</a></button>
-                <button><a href="<c:url value="/admin/processes/all"/>">Nie</a></button>
-
+                <div>
+                    <a href='<c:url value="/admin/processes/delete/${param.id}"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Tak</a>   
+                    <a href='<c:url value="/admin/processes/all"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Nie</a>
+                </div>
 
             </div>
             <!-- /.container-fluid -->

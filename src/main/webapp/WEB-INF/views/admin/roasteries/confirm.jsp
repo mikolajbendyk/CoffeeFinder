@@ -64,8 +64,14 @@
 
                 Czy na pewno chcesz usunąć tę palarnię?
                 <br><br>
-                <button><a href="<c:url value="/admin/roasteries/delete/${param.id}"/>">Tak</a></button>
-                <button><a href="<c:url value="/admin/roasteries/all"/>">Nie</a></button>
+                <div>
+                    <a href='<c:url value="/admin/roasteries/delete/${param.id}"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Tak</a>   
+                    <a href='<c:url value="/admin/roasteries/all"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Nie</a>
+                </div>
 
 
             </div>

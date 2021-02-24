@@ -63,8 +63,13 @@
                 <!-- Content Row -->
 
                 Do tego procesu są przypisane kawy. Nie możesz go usunąć.
-                <br><br>
-                <button><a href="<c:url value="/admin/processes/all"/>">Powrót</a></button>
+                <br>
+                <br>
+                <div>
+                    <a href='<c:url value="/admin/processes/all"/>'
+                        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Powrót</a>
+                </div>
 
 
             </div>

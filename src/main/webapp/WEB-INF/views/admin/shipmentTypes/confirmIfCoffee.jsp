@@ -64,7 +64,11 @@
 
                 Do tego sposobu wysyłki są przypisane wysyłki w palarniach. Nie możesz go usunąć.
                 <br><br>
-                <button><a href="<c:url value="/admin/shipment-types/all"/>">Powrót</a></button>
+                <div>
+                    <a href='<c:url value="/admin/shipment-types/all"/>'
+                        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Powrót</a>
+                </div>
 
 
             </div>

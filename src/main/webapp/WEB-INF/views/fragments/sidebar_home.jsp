@@ -18,7 +18,7 @@
         Filtrowanie
     </div>
 
-    <form method="post">
+    <form method="get">
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sort">
                 <span>Sortuj</span>
@@ -166,7 +166,10 @@
             </div>
         </li>
 
-            <input type="submit" value="Wyślij">
+          
+        <input type="reset" value="Wyczyść" style="background: orangered" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+          
+        <input type="submit" value="Wyślij" style="background: limegreen" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
     </form>
 
 

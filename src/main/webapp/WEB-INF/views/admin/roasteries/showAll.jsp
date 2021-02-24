@@ -58,10 +58,18 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Palarnie kawy</h1>
+                    <a href='<c:url value="/admin/roasteries/all"/>' class="d-none d-sm-inline-block btn btn-sm shadow-sm">
+                        Sortuj wg nazwy</a>
+                    <a href='<c:url value="/admin/roasteries/all?sort=city"/>' class="d-none d-sm-inline-block btn btn-sm shadow-sm">
+                        Sortuj wg miasta</a>
+
                     <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel
                         zarządzania</a>
                 </div>
-
+                <a href='<c:url value="/admin/roasteries/add"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    Dodaj palarnię</a>
+                <br>
+                <br>
                 <!-- Content Row -->
                 <table>
                     <thead>
@@ -101,8 +109,12 @@
                     </c:forEach>
                     </tbody>
                 </table>
-                <div><br>
-                    <button><a href='<c:url value="/admin/roasteries/add"/>'>Dodaj palarnię</a></button>
+                <br>
+                <div>
+                    <a href='<c:url value="/admin/roasteries/add"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Dodaj palarnię</a>
+                    <br>
+                    <br>
                 </div>
 
 

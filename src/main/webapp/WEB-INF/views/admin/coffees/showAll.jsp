@@ -58,20 +58,33 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Kawy</h1>
+
+                    <a href='<c:url value="/admin/coffees/all"/>' class="d-none d-sm-inline-block btn btn-sm shadow-sm">
+                        Sortuj wg nazwy</a>
+                    <a href='<c:url value="/admin/coffees/all?sort=country"/>' class="d-none d-sm-inline-block btn btn-sm shadow-sm">
+                        Sortuj wg kraju</a>
+                    <a href='<c:url value="/admin/coffees/all?sort=roastery"/>' class="d-none d-sm-inline-block btn btn-sm shadow-sm">
+                        Sortuj wg palarni</a>
+                    <a href='<c:url value="/admin/coffees/all?sort=active"/>' class="d-none d-sm-inline-block btn btn-sm shadow-sm">
+                        Sortuj wg dostępności</a>
+
                     <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel
                         zarządzania</a>
                 </div>
 
                 <!-- Content Row -->
-
+                <a href='<c:url value="/admin/coffees/add"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    Dodaj kawę</a>
+                <br>
+                <br>
                 <table>
                     <thead>
                     <th>Nr</th>
                     <th>Nazwa</th>
                     <th>Kraj pochodzenia</th>
+                    <th>Palarnia</th>
                     <th>Wypalenie</th>
                     <th>Single/Blend</th>
-                    <th>Palarnia</th>
                     <th>Miasto</th>
                     <th>Cena</th>
                     <th>Aktywna</th>
@@ -83,9 +96,9 @@
                             <td><c:out value="${loop.count}"/></td>
                             <td><c:out value="${coffee.name}"/></td>
                             <td><c:out value="${coffee.country.name}"/></td>
+                            <td><c:out value="${coffee.roastery.name}"/></td>
                             <td><c:out value="${coffee.roast.displayName}"/></td>
                             <td><c:out value="${coffee.composition.displayName}"/></td>
-                            <td><c:out value="${coffee.roastery.name}"/></td>
                             <td><c:out value="${coffee.roastery.city}"/></td>
                             <td><c:out value="${coffee.price}"/></td>
                             <td><c:out value="${coffee.active ? 'Tak' : 'Nie'}"/></td>
@@ -96,7 +109,10 @@
                     </tbody>
                 </table>
                 <div><br>
-                    <button><a href='<c:url value="/admin/coffees/add"/>'>Dodaj kawę</a></button>
+                    <a href='<c:url value="/admin/coffees/add"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Dodaj kawę</a>
+                    <br>
+                    <br>
                 </div>
 
 

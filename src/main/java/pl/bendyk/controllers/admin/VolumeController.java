@@ -2,12 +2,15 @@ package pl.bendyk.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.coffee.Volume;
 import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.VolumeRepository;
 
+import javax.validation.Valid;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/admin/volumes")
@@ -34,7 +37,10 @@ public class VolumeController {
     }
 
     @PostMapping("/add")
-    public String postAddForm(Volume volume) {
+    public String postAddForm(@Valid Volume volume, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/volumes/add";
+        }
         volumeRepository.save(volume);
         return "redirect:/admin/volumes/all";
     }
@@ -46,7 +52,10 @@ public class VolumeController {
     }
 
     @PostMapping("edit/{id}")
-    public String postEditForm(Volume volume) {
+    public String postEditForm(@Valid Volume volume, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/volumes/edit";
+        }
         volumeRepository.save(volume);
         return "redirect:/admin/volumes/all";
     }

@@ -28,6 +28,7 @@
         img {
             height: 200px;
         }
+
         form {
             padding: 0.6rem;
         }
@@ -72,18 +73,26 @@
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
+                                    <a href='<c:url value="${coffee.link}"/>' target="_blank">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div><img src='<c:url value="${coffee.imageSrc}"/>'></div>
                                             <div class="text-lg font-weight-bold text-primary text-uppercase mb-1">
-                                                ${coffee.name}
+                                                    ${coffee.name}
                                             </div>
-                                            <a href='<c:url value="${coffee.link}"/>' target="_blank"><div class="h5 mb-2 font-weight-bold text-gray-800">${coffee.roastery.name}
-                                            </div></a>
-                                            <div class="h6 mb-1 font-weight-normal text-gray-800">${coffee.volume.grams} g</div>
-                                            <div class="h6 mb-0 font-weight-normal text-gray-800">${coffee.price} zł</div>
+
+                                                <div class="h5 mb-3 font-weight-bold text-gray-800">
+                                                        ${coffee.roastery.name}
+                                                </div>
+
+                                            <div class="h6 mb-1 font-weight-normal text-gray-800">${coffee.volume.grams}
+                                                g
+                                            </div>
+                                            <div class="h6 mb-0 font-weight-normal text-gray-800">${coffee.price} zł
+                                            </div>
                                         </div>
                                     </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>

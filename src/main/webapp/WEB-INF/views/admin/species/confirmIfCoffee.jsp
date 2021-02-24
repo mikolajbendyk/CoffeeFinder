@@ -64,7 +64,9 @@
 
                 Do tego gatunku są przypisane kawy. Nie możesz go usunąć.
                 <br><br>
-                <button><a href="<c:url value="/admin/species/all"/>">Powrót</a></button>
+                <a href='<c:url value="/admin/species/all"/>'
+                   class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    Powrót</a>
 
 
             </div>

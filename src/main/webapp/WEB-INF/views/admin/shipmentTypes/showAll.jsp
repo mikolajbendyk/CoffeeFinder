@@ -79,9 +79,13 @@
                     </c:forEach>
                     </tbody>
                 </table>
-                <div><br>
-                    <button><a href='<c:url value="/admin/shipment-types/add"/>'>Dodaj sposób wysyłki</a></button></div>
-
+                <br>
+                <div>
+                    <a href='<c:url value="/admin/shipment-types/add"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Dodaj sposób wysyłki</a>
+                    <br>
+                    <br>
+                </div>
             </div>
             <!-- /.container-fluid -->
 

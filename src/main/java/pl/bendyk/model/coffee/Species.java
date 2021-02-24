@@ -3,6 +3,7 @@ package pl.bendyk.model.coffee;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Data
 @Entity
@@ -11,10 +12,6 @@ public class Species {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String name;
 }
-
-/*
- * tu podobny problem jak w Method, będą tu tylko dwie instancje: ARABICA, ROBUSTA
- * ale czasami - w przypadku niektórych blendów - będą występowały naraz, więc problem kolekcji enumów
- * */

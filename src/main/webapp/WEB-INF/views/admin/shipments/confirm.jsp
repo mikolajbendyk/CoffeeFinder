@@ -64,9 +64,14 @@
 
                 Czy na pewno chcesz usunąć ten sposób wysyłki?
                 <br><br>
-<%--                <form:hidden path="id" ></form:hidden>--%>
-                <button><a href="<c:url value="/admin/roasteries/${param.roastery}/shipments/delete/${param.id}"/>">Tak</a></button>
-                <button><a href="<c:url value="/admin/roasteries/edit/${param.roastery}"/>">Nie</a></button>
+                <div>
+                    <a href='<c:url value="/admin/roasteries/${param.roastery}/shipments/delete/${param.id}"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Tak</a>   
+                    <a href='<c:url value="/admin/roasteries/edit/${param.roastery}"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Nie</a>
+                </div>
 
 
             </div>

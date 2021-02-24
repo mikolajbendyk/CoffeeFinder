@@ -63,8 +63,13 @@
                 <!-- Content Row -->
 
                 Do tego kraju są przypisane kawy. Nie możesz go usunąć.
-                <br><br>
-                <button><a href="<c:url value="/admin/countries/all"/>">Powrót</a></button>
+                <br>
+                <br>
+                <div>
+                    <a href='<c:url value="/admin/countries/all"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Powrót</a>
+                </div>
 
 
             </div>

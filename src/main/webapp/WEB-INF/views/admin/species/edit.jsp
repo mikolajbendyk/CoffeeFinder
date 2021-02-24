@@ -67,8 +67,8 @@
                         <tbody>
                         <tr>
                             <td>Gatunek</td>
-                            <td><form:hidden path="id"></form:hidden>
-                                <form:input path="name"></form:input></td>
+                            <td><form:hidden path="id"/>
+                                <form:input path="name"/>   <form:errors path="name" cssClass="error"/></td>
                         </tr>
                         </tbody>
                     </table>

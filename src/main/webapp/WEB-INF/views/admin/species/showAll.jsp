@@ -25,6 +25,7 @@
             border: 1px solid;
             border-collapse: collapse;
         }
+
         th, td {
             padding: 12px;
         }
@@ -57,7 +58,8 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Gatunki kawy</h1>
-                    <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel zarządzania</a>
+                    <a href='<c:url value="/admin"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Panel
+                        zarządzania</a>
                 </div>
 
                 <!-- Content Row -->
@@ -79,8 +81,13 @@
                     </c:forEach>
                     </tbody>
                 </table>
-                <div><br>
-                    <button><a href='<c:url value="/admin/species/add"/>'>Dodaj gatunek</a></button></div>
+                <br>
+                <div>
+                    <a href='<c:url value="/admin/species/add"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Dodaj gatunek</a>
+                    <br>
+                    <br>
+                </div>
 
             </div>
             <!-- /.container-fluid -->

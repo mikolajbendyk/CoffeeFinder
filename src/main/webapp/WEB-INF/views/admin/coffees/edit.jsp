@@ -80,21 +80,21 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Obróbka</td>
-                            <td>
-                                <form:select path="depulpingProcess">
-                                    <form:option value="" label="Wybierz obróbkę"/>
-                                    <form:options items="${processes}" itemLabel="name" itemValue="id"/>
-                                </form:select>
-                            </td>
-                        </tr>
-                        <tr>
                             <td>Palarnia</td>
                             <td>
                                 <form:select path="roastery.id">
                                     <form:option value="" label="Wybierz palarnię"/>
                                     <form:options items="${roasteries}" itemLabel="name"
                                                   itemValue="id"/>
+                                </form:select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Obróbka</td>
+                            <td>
+                                <form:select path="depulpingProcess">
+                                    <form:option value="" label="Wybierz obróbkę"/>
+                                    <form:options items="${processes}" itemLabel="name" itemValue="id"/>
                                 </form:select>
                             </td>
                         </tr>
@@ -114,11 +114,13 @@
                             </c:forEach></td>
                         </tr>
                         <tr>
-                            <td>Single/Blend</td>
-                            <td><c:forEach items="${compositions}" var="composition">
-                                <form:checkbox path="composition" label=" ${composition.displayName}"
-                                               value="${composition}"/><br>
-                            </c:forEach></td>
+                            <td>Single / Blend</td>
+                            <td>
+                                <form:select path="composition">
+                                    <form:option value="" label="Wybierz"/>
+                                    <form:options items="${composition}" itemLabel="displayName"/>
+                                </form:select>
+                            </td>
                         </tr>
                         <tr>
                             <td>Gatunki</td>
@@ -127,7 +129,7 @@
                             </c:forEach></td>
                         </tr>
                         <tr>
-                            <td>Wielkość opakowania</td>
+                            <td>Wielkość opakowania [gr]</td>
                             <td>
                                 <form:select path="volume">
                                     <form:option value="" label="Wybierz wielkość"/>

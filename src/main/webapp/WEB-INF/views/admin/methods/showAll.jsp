@@ -79,8 +79,13 @@
                         </c:forEach>
                         </tbody>
                     </table>
-                    <div><br>
-                    <button><a href='<c:url value="/admin/methods/add"/>'>Dodaj metodę</a></button></div>
+                <br>
+                <div>
+                    <a href='<c:url value="/admin/methods/add"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Dodaj metodę</a>
+                    <br>
+                    <br>
+                </div>
 
 
             </div>

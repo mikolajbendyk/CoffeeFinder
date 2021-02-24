@@ -4,12 +4,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.bendyk.model.coffee.Coffee;
 import pl.bendyk.model.others.Roastery;
 import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.RoasteryRepository;
 import pl.bendyk.repository.ShipmentRepository;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin/roasteries")
@@ -26,8 +28,14 @@ public class RoasteryController {
     }
 
     @GetMapping("/all")
-    public String showAll(Model model) {
-        model.addAttribute("roasteries", roasteryRepository.findAll());
+    public String showAll(Model model, @RequestParam(required = false) String sort) {
+        List<Roastery> roasteries = roasteryRepository.findAllByOrderByName();
+        if (sort != null) {
+            if (sort.equals("city")) {
+                roasteries = roasteryRepository.findAllByOrderByCity();
+            }
+        }
+        model.addAttribute("roasteries", roasteries);
         return "admin/roasteries/showAll";
     }
 

@@ -63,10 +63,16 @@
                 <!-- Content Row -->
 
                 Czy na pewno chcesz usunąć ten kraj?
-                <br><br>
-                <button><a href="<c:url value="/admin/countries/delete/${param.id}"/>">Tak</a></button>
-                <button><a href="<c:url value="/admin/countries/all"/>">Nie</a></button>
-
+                <br>
+                <br>
+                <div>
+                    <a href='<c:url value="/admin/countries/delete/${param.id}"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Tak</a>   
+                    <a href='<c:url value="/admin/countries/all"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Nie</a>
+                </div>
 
             </div>
             <!-- /.container-fluid -->

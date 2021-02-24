@@ -61,7 +61,10 @@
                 </div>
 
                 <!-- Content Row -->
-
+                <a href='<c:url value="/admin/countries/add"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    Dodaj kraj</a>
+                <br>
+                <br>
                     <table>
                         <thead>
                         <th>Nr</th>
@@ -79,9 +82,13 @@
                         </c:forEach>
                         </tbody>
                     </table>
-                    <div><br>
-                    <button><a href='<c:url value="/admin/countries/add"/>'>Dodaj kraj</a></button></div>
-
+                    <br>
+                <div>
+                <a href='<c:url value="/admin/countries/add"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    Dodaj kraj</a>
+                <br>
+                <br>
+                </div>
 
             </div>
             <!-- /.container-fluid -->

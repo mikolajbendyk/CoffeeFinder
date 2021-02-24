@@ -67,7 +67,7 @@
                         <tbody>
                         <tr>
                             <td>Wielkość opakowania [gr]</td>
-                            <td><form:input path="grams"></form:input></td>
+                            <td><form:input path="grams"/>   <form:errors path="grams" cssClass="error"/></td>
                         </tr>
                         </tbody>
                     </table>

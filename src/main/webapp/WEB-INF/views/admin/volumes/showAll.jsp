@@ -79,8 +79,14 @@
                     </c:forEach>
                     </tbody>
                 </table>
-                <div><br>
-                    <button><a href='<c:url value="/admin/volumes/add"/>'>Dodaj opakowanie</a></button></div>
+                <br>
+                <div>
+                    <a href='<c:url value="/admin/volumes/add"/>'
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Dodaj opakowanie</a>
+                    <br>
+                    <br>
+                </div>
 
             </div>
             <!-- /.container-fluid -->

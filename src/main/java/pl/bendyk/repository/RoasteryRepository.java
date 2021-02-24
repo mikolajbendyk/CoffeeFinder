@@ -16,6 +16,8 @@ public interface RoasteryRepository extends JpaRepository<Roastery, Long> {
     Roastery save(Roastery roastery);
     void deleteById(Long id);
 
+    List<Roastery> findAllByOrderByCity();
+
     @Query(value = "select distinct city from roasteries order by city", nativeQuery = true)
     List<String> findAllCitiesOrderByName();
 

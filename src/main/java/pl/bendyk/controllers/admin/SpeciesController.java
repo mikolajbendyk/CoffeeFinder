@@ -2,11 +2,13 @@ package pl.bendyk.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.coffee.Species;
 import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.SpeciesRepository;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -34,7 +36,10 @@ public class SpeciesController {
     }
 
     @PostMapping("/add")
-    public String postAddForm(Species species) {
+    public String postAddForm(@Valid Species species, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/species/add";
+        }
         speciesRepository.save(species);
         return "redirect:/admin/species/all";
     }
@@ -46,7 +51,10 @@ public class SpeciesController {
     }
 
     @PostMapping("edit/{id}")
-    public String postEditForm(Species species) {
+    public String postEditForm(@Valid Species species, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/species/edit";
+        }
         speciesRepository.save(species);
         return "redirect:/admin/species/all";
     }

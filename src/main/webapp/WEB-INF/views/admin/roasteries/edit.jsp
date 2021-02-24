@@ -107,8 +107,11 @@
                     </c:forEach>
                     </tbody>
                 </table>
-
-                <button><a href='<c:url value="/admin/roasteries/${id}/shipments/add"/>'>Dodaj sposób wysyłki</a></button>
+                <br>
+                <div>
+                    <a href='<c:url value="/admin/roasteries/${id}/shipments/add"/>' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Dodaj sposób wysyłki</a>
+                </div>
 
 
             </div>

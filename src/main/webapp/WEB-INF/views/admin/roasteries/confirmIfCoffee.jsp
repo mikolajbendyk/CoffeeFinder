@@ -64,7 +64,11 @@
 
                 Do tej palarni są przypisane kawy. Nie możesz jej usunąć.
                 <br><br>
-                <button><a href="<c:url value="/admin/roasteries/all"/>">Powrót</a></button>
+                <div>
+                    <a href='<c:url value="/admin/roasteries/all"/>'
+                        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Powrót</a>
+                </div>
 
 
             </div>

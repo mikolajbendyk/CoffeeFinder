@@ -2,6 +2,7 @@
 <%@ taglib prefix="form"
            uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -38,13 +39,13 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#roastery">
                 <span>Palarnia</span>
             </a>
-                <div id="roastery" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <c:forEach items="${roasteries}" var="roastery">
+            <div id="roastery" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <c:forEach items="${roasteries}" var="roastery">
                     <div class="bg-white py-2 collapse-inner rounded">
                           <input type="checkbox" name="roasteriesIds" value="${roastery.id}">  ${roastery.name}
                     </div>
-                    </c:forEach>
-                </div>
+                </c:forEach>
+            </div>
         </li>
 
         <li class="nav-item">
@@ -53,9 +54,9 @@
             </a>
             <div id="country" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <c:forEach items="${countries}" var="country">
-                <div class="bg-white py-2 collapse-inner rounded">
-                      <input type="checkbox" name="countriesIds" value="${country.id}">  ${country.name}
-                </div>
+                    <div class="bg-white py-2 collapse-inner rounded">
+                          <input type="checkbox" name="countriesIds" value="${country.id}">  ${country.name}
+                    </div>
                 </c:forEach>
             </div>
         </li>
@@ -66,11 +67,9 @@
             </a>
             <div id="method" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <c:forEach items="${methods}" var="method">
-                <div class="bg-white py-2 collapse-inner rounded">
-                      <input type="checkbox"
-<%--                             <c:if test="${params.method.id}"--%>
-                             name="methodsIds" value="${method.id}">  ${method.name}
-                </div>
+                    <div class="bg-white py-2 collapse-inner rounded">
+                          <input type="checkbox" name="methodsIds" value="${method.id}">  ${method.name}
+                    </div>
                 </c:forEach>
             </div>
         </li>
@@ -81,9 +80,9 @@
             </a>
             <div id="roast" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <c:forEach items="${roasts}" var="roast">
-                <div class="bg-white py-2 collapse-inner rounded">
-                      <input type="checkbox" name="roasts" value="${roast.ordinal()}">  ${roast.displayName}
-                </div>
+                    <div class="bg-white py-2 collapse-inner rounded">
+                          <input type="checkbox" name="roasts" value="${roast.ordinal()}">  ${roast.displayName}
+                    </div>
                 </c:forEach>
             </div>
         </li>
@@ -92,11 +91,13 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#depulpingProcess">
                 <span>Obróbka</span>
             </a>
-            <div id="depulpingProcess" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div id="depulpingProcess" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
                 <c:forEach items="${depulpingProcesses}" var="depulpingProcess">
-                <div class="bg-white py-2 collapse-inner rounded">
-                      <input type="checkbox" name="depulpingProcessesIds" value="${depulpingProcess.id}">  ${depulpingProcess.name}
-                </div>
+                    <div class="bg-white py-2 collapse-inner rounded">
+                          <input type="checkbox" name="depulpingProcessesIds"
+                                 value="${depulpingProcess.id}">  ${depulpingProcess.name}
+                    </div>
                 </c:forEach>
             </div>
         </li>
@@ -107,9 +108,10 @@
             </a>
             <div id="composition" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <c:forEach items="${compositions}" var="composition">
-                <div class="bg-white py-2 collapse-inner rounded">
-                      <input type="checkbox" name="compositions" value="${composition.ordinal()}">  ${composition.displayName}
-                </div>
+                    <div class="bg-white py-2 collapse-inner rounded">
+                          <input type="checkbox" name="compositions"
+                                 value="${composition.ordinal()}">  ${composition.displayName}
+                    </div>
                 </c:forEach>
             </div>
         </li>
@@ -120,9 +122,9 @@
             </a>
             <div id="species" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <c:forEach items="${species}" var="species">
-                <div class="bg-white py-2 collapse-inner rounded">
-                      <input type="checkbox" name="speciesIds" value="${species.id}">  ${species.name}
-                </div>
+                    <div class="bg-white py-2 collapse-inner rounded">
+                          <input type="checkbox" name="speciesIds" value="${species.id}">  ${species.name}
+                    </div>
                 </c:forEach>
             </div>
         </li>
@@ -133,9 +135,9 @@
             </a>
             <div id="volume" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <c:forEach items="${volumes}" var="volume">
-                <div class="bg-white py-2 collapse-inner rounded">
-                      <input type="checkbox" name="volumesIds" value="${volume.id}">  ${volume.grams}
-                </div>
+                    <div class="bg-white py-2 collapse-inner rounded">
+                          <input type="checkbox" name="volumesIds" value="${volume.id}">  ${volume.grams}
+                    </div>
                 </c:forEach>
             </div>
         </li>
@@ -146,9 +148,10 @@
             </a>
             <div id="shipmentType" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <c:forEach items="${shipmentTypes}" var="shipmentType">
-                <div class="bg-white py-2 collapse-inner rounded">
-                      <input type="checkbox" name="shipmentTypesIds" value="${shipmentType.id}">  ${shipmentType.name}
-                </div>
+                    <div class="bg-white py-2 collapse-inner rounded">
+                          <input type="checkbox" name="shipmentTypesIds"
+                                 value="${shipmentType.id}">  ${shipmentType.name}
+                    </div>
                 </c:forEach>
             </div>
         </li>
@@ -159,17 +162,19 @@
             </a>
             <div id="city" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <c:forEach items="${cities}" var="city">
-                <div class="bg-white py-2 collapse-inner rounded">
-                      <input type="checkbox" name="cities" value="${city}">  ${city}
-                </div>
+                    <div class="bg-white py-2 collapse-inner rounded">
+                          <input type="checkbox" name="cities" value="${city}">  ${city}
+                    </div>
                 </c:forEach>
             </div>
         </li>
 
           
-        <input type="reset" value="Wyczyść" style="background: orangered" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <input type="reset" value="Wyczyść" style="background: orangered"
+               class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
           
-        <input type="submit" value="Wyślij" style="background: limegreen" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <input type="submit" value="Wyślij" style="background: limegreen"
+               class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
     </form>
 
 
@@ -186,6 +191,14 @@
             <span>Admin</span>
         </a>
     </li>
+    <li class="nav-item">
+        <sec:authorize access="isAuthenticated()">
+            <form action="<c:url value="/logout"/>" method="post">
+                 <input type="submit" value="Wyloguj" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> </form>
+        </sec:authorize>
+    </li>
+
 
 
 </ul>

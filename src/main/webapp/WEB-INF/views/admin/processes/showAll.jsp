@@ -20,16 +20,6 @@
             rel="stylesheet">
     <link href='<c:url value="/theme/css/sb-admin-2.min.css"/>' rel="stylesheet">
 
-    <style>
-        table, th, td {
-            border: 1px solid;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 12px;
-        }
-    </style>
 
 </head>
 
@@ -64,7 +54,7 @@
 
                 <!-- Content Row -->
 
-                <table>
+                <table class="bord-tab">
                     <thead>
                     <th>Nr</th>
                     <th>Proces</th>

@@ -65,7 +65,7 @@
                     Dodaj kraj</a>
                 <br>
                 <br>
-                    <table>
+                    <table class="bord-tab">
                         <thead>
                         <th>Nr</th>
                         <th>Kraj</th>

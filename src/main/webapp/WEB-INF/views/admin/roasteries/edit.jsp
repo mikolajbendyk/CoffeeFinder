@@ -24,12 +24,6 @@
     <!-- Custom styles for this template-->
     <link href='<c:url value="/theme/css/sb-admin-2.min.css"/>' rel="stylesheet">
 
-    <style>
-        th, td {
-            padding: 8px;
-        }
-    </style>
-
 </head>
 
 <body id="page-top">
@@ -65,7 +59,7 @@
 
                 <form:form method="post" modelAttribute="roastery">
                     <form:hidden path="id"/>
-                    <table>
+                    <table class="no-bord-tab">
                         <tbody>
                         <tr>
                             <td>Nazwa palarni</td>
@@ -88,7 +82,7 @@
 
                 <h4>Sposoby wysyłki</h4>
 
-                <table>
+                <table class="bord-tab">
                     <thead>
                     <th>Nr</th>
                     <th>Sposób wysyłki</th>

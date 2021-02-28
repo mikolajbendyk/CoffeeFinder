@@ -20,17 +20,6 @@
             rel="stylesheet">
     <link href='<c:url value="/theme/css/sb-admin-2.min.css"/>' rel="stylesheet">
 
-    <style>
-        th, td {
-            border: 1px solid;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 12px;
-        }
-    </style>
-
 </head>
 
 <body id="page-top">
@@ -71,13 +60,12 @@
                 <br>
                 <br>
                 <!-- Content Row -->
-                <table>
+                <table class="bord-tab">
                     <thead>
                     <th>Nr</th>
                     <th>Palarnia</th>
                     <th>Miasto</th>
                     <th>Adres</th>
-<%--                    <th>Sposoby wysyłki</th>--%>
                     <th>Akcje</th>
                     </thead>
                     <tbody>
@@ -87,22 +75,6 @@
                             <td><c:out value="${roastery.name}"/></td>
                             <td><c:out value="${roastery.city}"/></td>
                             <td><c:out value="${roastery.address}"/></td>
-<%--                            <td>--%>
-<%--                                <c:forEach items="${roastery.shipments}" var="shipment">--%>
-<%--                                    <c:out value="${shipment.shipmentType.name}"/> --%>
-<%--                                    <c:out value="${shipment.price}"/> zł<br>--%>
-<%--                                </c:forEach>--%>
-<%--                            </td>--%>
-<%--                            <td>--%>
-<%--                                <table>--%>
-<%--                                    <c:forEach items="${roastery.shipments}" var="shipment">--%>
-<%--                                        <tr>--%>
-<%--                                            <td><c:out value="${shipment.shipmentType.name}"/></td>--%>
-<%--                                            <td><c:out value="${shipment.price}"/> zł</td>--%>
-<%--                                        </tr>--%>
-<%--                                    </c:forEach>--%>
-<%--                                </table>--%>
-<%--                            </td>--%>
                             <td><a href='<c:url value="/admin/roasteries/edit/${roastery.id}"/>'>Edytuj</a> 
                                 <a href='<c:url value="/admin/roasteries/confirm?id=${roastery.id}"/>'>Usuń</a></td>
                         </tr>

@@ -24,12 +24,6 @@
     <!-- Custom styles for this template-->
     <link href='<c:url value="/theme/css/sb-admin-2.min.css"/>' rel="stylesheet">
 
-    <style>
-        th, td {
-            padding: 8px;
-        }
-    </style>
-
 </head>
 
 <body id="page-top">
@@ -65,7 +59,7 @@
 
                 <form:form method="post" modelAttribute="shipment">
 
-                    <table>
+                    <table class="no-bord-tab">
                         <tbody>
                         <tr>
                             <td>Sposób wysyłki</td>

@@ -24,12 +24,6 @@
     <!-- Custom styles for this template-->
     <link href='<c:url value="/theme/css/sb-admin-2.min.css"/>' rel="stylesheet">
 
-    <style>
-        th, td {
-            padding: 8px;
-        }
-    </style>
-
 </head>
 
 <body id="page-top">
@@ -64,7 +58,7 @@
                 <!-- Content Row -->
                 <form:hidden path="id"></form:hidden>
                 <form:form method="post" modelAttribute="coffee">
-                    <table>
+                    <table class="no-bord-tab">
                         <tbody>
                         <tr>
                             <td>Nazwa</td>

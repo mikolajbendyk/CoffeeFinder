@@ -34,10 +34,10 @@ public class Coffee {
     @NotNull
     @ManyToOne
     private Volume volume;
-    @NotNull
+    @NotEmpty
     @ManyToMany
     private List<Species> species;
-    @NotNull
+    @NotEmpty
     @ManyToMany
     private List<Method> methods;
     @NotNull

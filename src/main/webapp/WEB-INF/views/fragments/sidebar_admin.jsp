@@ -63,6 +63,14 @@
             <span>Sposoby wysyłki</span>
         </a>
     </li>
+<br>
+    <li class="nav-item">
+        <sec:authorize access="isAuthenticated()">
+            <form action="<c:url value="/logout"/>" method="post">
+                    <input type="submit" value="Wyloguj" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> </form>
+        </sec:authorize>
+    </li>
 
 
 </ul>

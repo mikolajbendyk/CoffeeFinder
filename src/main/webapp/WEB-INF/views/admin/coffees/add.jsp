@@ -25,12 +25,6 @@
     <!-- Custom styles for this template-->
     <link href='<c:url value="/theme/css/sb-admin-2.min.css"/>' rel="stylesheet">
 
-    <style>
-        th, td {
-            padding: 8px;
-        }
-    </style>
-
 </head>
 
 <body id="page-top">
@@ -65,7 +59,7 @@
                 <!-- Content Row -->
 
                 <form:form method="post" modelAttribute="coffee">
-                    <table>
+                    <table class="no-bord-tab">
                         <tbody>
                         <tr>
                             <td>Nazwa</td>
@@ -130,16 +124,6 @@
                                     <form:checkbox path="species" label=" ${species.name}" value="${species}"/><br>
                                 </c:forEach>
                                 <form:errors path="species" cssClass="error"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Single / Blend</td>
-                            <td>
-                                <form:select path="composition">
-                                    <form:option value="" label="Wybierz"/>
-                                    <form:options items="${composition}" itemLabel="displayName"/>
-                                </form:select>
-                                   <form:errors path="composition" cssClass="error"/>
                             </td>
                         </tr>
                         <tr>

@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.coffee.Coffee;
 import pl.bendyk.model.others.Roastery;
+import pl.bendyk.model.others.Shipment;
 import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.RoasteryRepository;
 import pl.bendyk.repository.ShipmentRepository;
@@ -79,6 +80,10 @@ public class RoasteryController {
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
+        List<Shipment> shipments = shipmentRepository.findShipmentsForRoastery(id);
+        for (Shipment s : shipments) {
+            shipmentRepository.deleteById(s.getId());
+        }
         roasteryRepository.deleteById(id);
         return "redirect:/admin/roasteries/all";
     }

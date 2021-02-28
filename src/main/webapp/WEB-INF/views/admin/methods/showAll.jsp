@@ -62,7 +62,7 @@
 
                 <!-- Content Row -->
 
-                    <table>
+                    <table class="bord-tab">
                         <thead>
                         <th>Nr</th>
                         <th>Metoda</th>

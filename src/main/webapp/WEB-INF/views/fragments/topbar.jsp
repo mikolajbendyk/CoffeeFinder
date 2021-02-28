@@ -15,19 +15,12 @@
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kawy</span>
             </a>
         </li>
-<%--        <div class="topbar-divider d-none d-sm-block"></div>--%>
-<%--        <li class="nav-item dropdown no-arrow">--%>
-<%--            <a class="nav-link dropdown-toggle" href="#">--%>
-<%--                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kalkulator proporcji</span>--%>
-<%--            </a>--%>
-<%--        </li>--%>
         <div class="topbar-divider d-none d-sm-block"></div>
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">O projekcie</span>
             </a>
         </li>
-        <!--                         -->
         <div class="topbar-divider d-none d-sm-block"></div>
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#">

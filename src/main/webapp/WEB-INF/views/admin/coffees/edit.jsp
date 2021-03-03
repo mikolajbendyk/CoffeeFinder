@@ -56,27 +56,32 @@
                 </div>
 
                 <!-- Content Row -->
-                <form:hidden path="id"></form:hidden>
+
                 <form:form method="post" modelAttribute="coffee">
+                    <form:hidden path="id"></form:hidden>
                     <table class="no-bord-tab">
                         <tbody>
                         <tr>
                             <td>Nazwa</td>
-                            <td><form:input path="name"/></td>
+                            <td>
+                                <form:input path="name"/>
+                                   <form:errors path="name" cssClass="error"/>
+                            </td>
                         </tr>
                         <tr>
                             <td>Kraj pochodzenia</td>
                             <td>
-                                <form:select path="country.id">
+                                <form:select path="country">
                                     <form:option value="" label="Wybierz kraj"/>
                                     <form:options items="${countries}" itemLabel="name" itemValue="id"/>
                                 </form:select>
+                                   <form:errors path="country" cssClass="error"/>
                             </td>
                         </tr>
                         <tr>
                             <td>Palarnia</td>
                             <td>
-                                <form:select path="roastery.id">
+                                <form:select path="roastery">
                                     <form:option value="" label="Wybierz palarnię"/>
                                     <form:options items="${roasteries}" itemLabel="name"
                                                   itemValue="id"/>

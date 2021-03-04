@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.coffee.DepulpingProcess;
 import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.DepulpingProcessRepository;
+import pl.bendyk.service.DepulpingProcessService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -15,17 +16,17 @@ import java.util.List;
 @RequestMapping("/admin/processes")
 public class DepulpingProcessController {
 
-    private final DepulpingProcessRepository depulpingProcessRepository;
+    private final DepulpingProcessService depulpingProcessService;
     private final CoffeeRepository coffeeRepository;
 
-    public DepulpingProcessController(DepulpingProcessRepository depulpingProcessRepository, CoffeeRepository coffeeRepository) {
-        this.depulpingProcessRepository = depulpingProcessRepository;
+    public DepulpingProcessController(DepulpingProcessService depulpingProcessService, CoffeeRepository coffeeRepository) {
+        this.depulpingProcessService = depulpingProcessService;
         this.coffeeRepository = coffeeRepository;
     }
 
     @RequestMapping("/all")
     public String all(Model model) {
-        List<DepulpingProcess> processes = depulpingProcessRepository.findAll();
+        List<DepulpingProcess> processes = depulpingProcessService.findAll();
         model.addAttribute("processes", processes);
         return "admin/processes/showAll";
     }
@@ -40,13 +41,13 @@ public class DepulpingProcessController {
         if (result.hasErrors()) {
             return "admin/processes/add";
         }
-        depulpingProcessRepository.save(depulpingProcess);
+        depulpingProcessService.save(depulpingProcess);
         return "redirect:/admin/processes/all";
     }
 
     @GetMapping("/edit/{id}")
     public String getEditForm(@PathVariable Long id, Model model) {
-        model.addAttribute("depulpingProcess", depulpingProcessRepository.findById(id));
+        model.addAttribute("depulpingProcess", depulpingProcessService.findOne(id));
         return "admin/processes/edit";
     }
 
@@ -55,7 +56,7 @@ public class DepulpingProcessController {
         if (result.hasErrors()) {
             return "admin/processes/add";
         }
-        depulpingProcessRepository.save(depulpingProcess);
+        depulpingProcessService.save(depulpingProcess);
         return "redirect:/admin/processes/all";
     }
 
@@ -69,7 +70,7 @@ public class DepulpingProcessController {
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
-        depulpingProcessRepository.deleteById(id);
+        depulpingProcessService.delete(id);
         return "redirect:/admin/processes/all";
     }
 }

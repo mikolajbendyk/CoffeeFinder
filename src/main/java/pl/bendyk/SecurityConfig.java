@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import pl.bendyk.service.SpringDataUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
@@ -27,6 +28,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-
+    @Bean
+    public SpringDataUserDetailsService customUserDetailsService() {
+        return new SpringDataUserDetailsService();
+    }
 
 }

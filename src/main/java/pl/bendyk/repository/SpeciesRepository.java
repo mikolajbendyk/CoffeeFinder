@@ -10,9 +10,7 @@ import java.util.Optional;
 @Repository
 public interface SpeciesRepository extends JpaRepository<Species, Long> {
 
-    List<Species> findAll();
     List<Species> findAllByOrderByName();
-    Optional<Species> findById(Long id);
     Species save(Species species);
     void deleteById(Long id);
 

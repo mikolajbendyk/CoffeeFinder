@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.coffee.Species;
 import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.SpeciesRepository;
+import pl.bendyk.service.SpeciesService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -15,17 +16,17 @@ import java.util.List;
 @RequestMapping("/admin/species")
 public class SpeciesController {
 
-    private final SpeciesRepository speciesRepository;
+    private final SpeciesService speciesService;
     private final CoffeeRepository coffeeRepository;
 
-    public SpeciesController(SpeciesRepository speciesRepository, CoffeeRepository coffeeRepository) {
-        this.speciesRepository = speciesRepository;
+    public SpeciesController(SpeciesService speciesService, CoffeeRepository coffeeRepository) {
+        this.speciesService = speciesService;
         this.coffeeRepository = coffeeRepository;
     }
 
     @RequestMapping("/all")
     public String all(Model model) {
-        List<Species> species = speciesRepository.findAll();
+        List<Species> species = speciesService.findAll();
         model.addAttribute("species", species);
         return "admin/species/showAll";
     }
@@ -40,13 +41,13 @@ public class SpeciesController {
         if (result.hasErrors()) {
             return "admin/species/add";
         }
-        speciesRepository.save(species);
+        speciesService.save(species);
         return "redirect:/admin/species/all";
     }
 
     @GetMapping("/edit/{id}")
     public String getEditForm(@PathVariable Long id, Model model) {
-        model.addAttribute("species", speciesRepository.findById(id));
+        model.addAttribute("species", speciesService.findOne(id));
         return "admin/species/edit";
     }
 
@@ -55,7 +56,7 @@ public class SpeciesController {
         if (result.hasErrors()) {
             return "admin/species/edit";
         }
-        speciesRepository.save(species);
+        speciesService.save(species);
         return "redirect:/admin/species/all";
     }
 
@@ -69,7 +70,7 @@ public class SpeciesController {
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
-        speciesRepository.deleteById(id);
+        speciesService.delete(id);
         return "redirect:/admin/species/all";
     }
 

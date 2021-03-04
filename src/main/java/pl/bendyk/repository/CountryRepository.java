@@ -11,7 +11,6 @@ import java.util.Optional;
 public interface CountryRepository extends JpaRepository<Country, Long> {
 
     List<Country> findAllByOrderByName();
-    Optional<Country> findById(Long id);
     Country save(Country country);
     void deleteById(Long id);
 

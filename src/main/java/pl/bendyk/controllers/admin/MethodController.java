@@ -8,6 +8,7 @@ import pl.bendyk.model.coffee.Method;
 import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.CountryRepository;
 import pl.bendyk.repository.MethodRepository;
+import pl.bendyk.service.MethodService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -16,17 +17,17 @@ import java.util.List;
 @RequestMapping("/admin/methods")
 public class MethodController {
 
-    private final MethodRepository methodRepository;
+    private final MethodService methodService;
     private final CoffeeRepository coffeeRepository;
 
-    public MethodController(MethodRepository methodRepository, CoffeeRepository coffeeRepository) {
-        this.methodRepository = methodRepository;
+    public MethodController(MethodService methodService, CoffeeRepository coffeeRepository) {
+        this.methodService = methodService;
         this.coffeeRepository = coffeeRepository;
     }
 
     @RequestMapping("/all")
     public String all(Model model) {
-        List<Method> methods = methodRepository.findAll();
+        List<Method> methods = methodService.findAll();
         model.addAttribute("methods", methods);
         return "admin/methods/showAll";
     }
@@ -41,13 +42,13 @@ public class MethodController {
         if (result.hasErrors()) {
             return "admin/methods/add";
         }
-        methodRepository.save(method);
+        methodService.save(method);
         return "redirect:/admin/methods/all";
     }
 
     @GetMapping("/edit/{id}")
     public String getEditForm(@PathVariable Long id, Model model) {
-        model.addAttribute("method", methodRepository.findById(id));
+        model.addAttribute("method", methodService.findOne(id));
         return "admin/methods/edit";
     }
 
@@ -56,7 +57,7 @@ public class MethodController {
         if (result.hasErrors()) {
             return "admin/methods/edit";
         }
-        methodRepository.save(method);
+        methodService.save(method);
         return "redirect:/admin/methods/all";
     }
 
@@ -70,7 +71,7 @@ public class MethodController {
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
-        methodRepository.deleteById(id);
+        methodService.delete(id);
         return "redirect:/admin/methods/all";
     }
 

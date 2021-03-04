@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.coffee.Volume;
 import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.VolumeRepository;
+import pl.bendyk.service.VolumeService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -16,17 +17,17 @@ import java.util.logging.Logger;
 @RequestMapping("/admin/volumes")
 public class VolumeController {
 
-    private final VolumeRepository volumeRepository;
+    private final VolumeService volumeService;
     private final CoffeeRepository coffeeRepository;
 
-    public VolumeController(VolumeRepository volumeRepository, CoffeeRepository coffeeRepository) {
-        this.volumeRepository = volumeRepository;
+    public VolumeController(VolumeService volumeService, CoffeeRepository coffeeRepository) {
+        this.volumeService = volumeService;
         this.coffeeRepository = coffeeRepository;
     }
 
     @RequestMapping("/all")
     public String all(Model model) {
-        List<Volume> volumes = volumeRepository.findAll();
+        List<Volume> volumes = volumeService.findAll();
         model.addAttribute("volumes", volumes);
         return "admin/volumes/showAll";
     }
@@ -41,13 +42,13 @@ public class VolumeController {
         if (result.hasErrors()) {
             return "admin/volumes/add";
         }
-        volumeRepository.save(volume);
+        volumeService.save(volume);
         return "redirect:/admin/volumes/all";
     }
 
     @GetMapping("/edit/{id}")
     public String getEditForm(@PathVariable Long id, Model model) {
-        model.addAttribute("volumes", volumeRepository.findById(id));
+        model.addAttribute("volumes", volumeService.findOne(id));
         return "admin/volumes/edit";
     }
 
@@ -56,7 +57,7 @@ public class VolumeController {
         if (result.hasErrors()) {
             return "admin/volumes/edit";
         }
-        volumeRepository.save(volume);
+        volumeService.save(volume);
         return "redirect:/admin/volumes/all";
     }
 
@@ -70,7 +71,7 @@ public class VolumeController {
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
-        volumeRepository.deleteById(id);
+        volumeService.delete(id);
         return "redirect:/admin/volumes/all";
     }
 

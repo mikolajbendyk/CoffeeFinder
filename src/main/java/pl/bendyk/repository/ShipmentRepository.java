@@ -13,8 +13,7 @@ import java.util.Optional;
 @Repository
 public interface ShipmentRepository extends JpaRepository<Shipment, Long> {
 
-    List<Shipment> findAll();
-    Optional<Shipment> findById(Long id);
+    List<Shipment> findAllByOrderByName();
 
     @Query(value = "select * from shipments where roastery_id = ?1", nativeQuery = true)
     List<Shipment> findShipmentsForRoastery(Long id);

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.others.Country;
 import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.CountryRepository;
+import pl.bendyk.service.CountryService;
+import pl.bendyk.service.CountryServiceImpl;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -15,17 +17,17 @@ import java.util.List;
 @RequestMapping("/admin/countries")
 public class CountryController {
 
-    private final CountryRepository countryRepository;
+    private final CountryService countryService;
     private final CoffeeRepository coffeeRepository;
 
-    public CountryController(CountryRepository countryRepository, CoffeeRepository coffeeRepository) {
-        this.countryRepository = countryRepository;
+    public CountryController(CountryService countryService, CoffeeRepository coffeeRepository) {
+        this.countryService = countryService;
         this.coffeeRepository = coffeeRepository;
     }
 
     @RequestMapping("/all")
     public String all(Model model) {
-        List<Country> countries = countryRepository.findAllByOrderByName();
+        List<Country> countries = countryService.findAll();
         model.addAttribute("countries", countries);
         return "admin/countries/showAll";
     }
@@ -40,13 +42,13 @@ public class CountryController {
         if (result.hasErrors()) {
             return "admin/countries/add";
         }
-        countryRepository.save(country);
+        countryService.save(country);
         return "redirect:/admin/countries/all";
     }
 
     @GetMapping("/edit/{id}")
     public String getEditForm(@PathVariable Long id, Model model) {
-        model.addAttribute("country", countryRepository.findById(id));
+        model.addAttribute("country", countryService.findOne(id));
         return "admin/countries/edit";
     }
 
@@ -55,7 +57,7 @@ public class CountryController {
         if (result.hasErrors()) {
             return "admin/countries/edit";
         }
-        countryRepository.save(country);
+        countryService.save(country);
         return "redirect:/admin/countries/all";
     }
 
@@ -69,7 +71,7 @@ public class CountryController {
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
-        countryRepository.deleteById(id);
+        countryService.delete(id);
         return "redirect:/admin/countries/all";
     }
 

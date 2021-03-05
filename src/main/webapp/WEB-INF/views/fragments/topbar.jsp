@@ -9,6 +9,10 @@
     <ul class="navbar-nav ml-auto">
 
         <!-- Menu -->
+<%--        <div class="topbar-divider d-none d-sm-block"></div>--%>
+<%--        <li class="nav-item dropdown no-arrow">--%>
+<%--            <span class="nav-link dropdown-toggle mr-2 d-none d-lg-inline text-gray-600 small"><c:out value="${}"/></span>--%>
+<%--        </li>--%>
         <div class="topbar-divider d-none d-sm-block"></div>
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href='<c:url value="/"/>'>

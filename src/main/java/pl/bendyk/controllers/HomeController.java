@@ -1,5 +1,6 @@
 package pl.bendyk.controllers;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,7 +44,7 @@ public class HomeController {
     }
 
     @RequestMapping("/")
-    public String home(Model model) {
+    public String home(Model model, @AuthenticationPrincipal CurrentUser currentUser) {
         model.addAttribute("coffees", coffeeService.findAllActive());
         model.addAttribute("roasteries", roasteryService.findAll());
         model.addAttribute("countries", countryService.findAll());
@@ -55,6 +56,7 @@ public class HomeController {
         model.addAttribute("volumes", volumeService.findAll());
         model.addAttribute("shipmentTypes", shipmentTypeService.findAll());
         model.addAttribute("cities", roasteryService.findAllCities());
+//        model.addAttribute("user", currentUser.getUser().getUsername());
         return "home/coffees/showAll";
     }
 
@@ -97,7 +99,7 @@ public class HomeController {
                         homeService.shipmentTypesCheck(shipmentTypesIds),
                         homeService.citiesCheck(cities)
                 ));
-            } else if (sort.equals("priceDesc")){
+            } else if (sort.equals("priceDesc")) {
                 model.addAttribute("coffees", coffeeService.findFilteredSortedDesc(
                         homeService.roasteriesCheck(roasteriesIds),
                         homeService.countriesCheck(countriesIds),
@@ -127,183 +129,4 @@ public class HomeController {
         }
         return "home/coffees/showAll";
     }
-
-
-//    private List<Long> roasteriesCheck(List<Long> ids) {
-//        if (ids == null) {
-//            return coffeeRepository.findRoasteriesIds();
-//        }
-//        return ids;
-//    }
-//
-//    private List<Long> countriesCheck(List<Long> ids) {
-//        if (ids == null) {
-//            return coffeeRepository.findCountriesIds();
-//        }
-//        return ids;
-//    }
-//
-//    private List<Long> methodsCheck(List<Long> ids) {
-//        if (ids == null) {
-//            return coffeeRepository.findMethodsIds();
-//        }
-//        return ids;
-//    }
-//
-//    private List<Integer> roastsCheck(List<Integer> roasts) {
-//        if (roasts == null) {
-//            List<Integer> ordinals = new ArrayList<>();
-//            for (Roast r : Roast.values()) {
-//                ordinals.add(r.ordinal());
-//            }
-//            return ordinals;
-//        }
-//        return roasts;
-//    }
-//
-//    private List<Long> depulpingProcessesCheck(List<Long> ids) {
-//        if (ids == null) {
-//            return coffeeRepository.findDepulpingProcessesIds();
-//        }
-//        return ids;
-//    }
-//
-//    private List<Integer> compositionsCheck(List<Integer> compositions) {
-//        if (compositions == null) {
-//            List<Integer> ordinals = new ArrayList<>();
-//            for (Composition c : Composition.values()) {
-//                ordinals.add(c.ordinal());
-//            }
-//            return ordinals;
-//        }
-//        return compositions;
-//    }
-//
-//    private List<Long> speciesCheck(List<Long> ids) {
-//        if (ids == null) {
-//            return coffeeRepository.findSpeciesIds();
-//        }
-//        return ids;
-//    }
-//
-//    private List<Long> volumesCheck(List<Long> ids) {
-//        if (ids == null) {
-//            return coffeeRepository.findVolumesIds();
-//        }
-//        return ids;
-//    }
-//
-//    private List<Long> shipmentTypesCheck(List<Long> ids) {
-//        if (ids == null) {
-//            return coffeeRepository.findShipmentTypesIds();
-//        }
-//        return ids;
-//    }
-//
-//    private List<String> citiesCheck(List<String> cities) {
-//        if (cities == null) {
-//            return roasteryRepository.findAllCitiesOrderByName();
-//        }
-//        return cities;
-//    }
-
-
-
-
-
 }
-
-
-
-//model.addAttribute("coffees", testSortFilter(sort));
-//        model.addAttribute("coffees", testRoasteryFilter(roasteriesIds));
-//        model.addAttribute("coffees", testCountryFilter(countriesIds));
-//        model.addAttribute("coffees", testMethodFilter(methodsIds));
-//        model.addAttribute("coffees", testRoastFilter(roasts));
-//        model.addAttribute("coffees", testDepulpingProcessFilter(depulpingProcessesIds));
-//        model.addAttribute("coffees", testCompositionFilter(compositions));
-//        model.addAttribute("coffees", testSpeciesFilter(speciesIds));
-//        model.addAttribute("coffees", testVolumeFilter(volumesIds));
-//        model.addAttribute("coffees", testShipmentTypeFilter(shipmentTypesIds));
-//        model.addAttribute("coffees", testCityFilter(cities));
-//
-//    private List<Coffee> testSortFilter(String sort) {
-//        if (sort != null) {
-//            if (sort.equals("priceAsc")) {
-//                return coffeeRepository.findAllByOrderByPriceAsc();
-//            } else if (sort.equals("priceDesc")) {
-//                return coffeeRepository.findAllByOrderByPriceDesc();
-//            }
-//        }
-//        return coffeeRepository.findAll();
-//    }
-//
-//    private List<Coffee> testRoasteryFilter(List<Long> roasteriesIds) {
-//        if (roasteriesIds != null) {
-//            return coffeeRepository.findAllByRoasteries(roasteriesIds);
-//        }
-//        return coffeeRepository.findAll();
-//    }
-//
-//    private List<Coffee> testCountryFilter(List<Long> countriesIds) {
-//        if (countriesIds != null) {
-//            return coffeeRepository.findAllByCountries(countriesIds);
-//        }
-//        return coffeeRepository.findAll();
-//    }
-//
-//    private List<Coffee> testMethodFilter(List<Long> methodsIds) {
-//        if (methodsIds != null) {
-//            return coffeeRepository.findAllByMethods(methodsIds);
-//        }
-//        return coffeeRepository.findAll();
-//    }
-//
-//    private List<Coffee> testRoastFilter(List<Integer> roasts) {
-//        if (roasts != null) {
-//            return coffeeRepository.findAllByRoasts(roasts);
-//        }
-//        return coffeeRepository.findAll();
-//    }
-//
-//    private List<Coffee> testDepulpingProcessFilter(List<Long> depulpingProcessesIds) {
-//        if (depulpingProcessesIds != null) {
-//            return coffeeRepository.findAllByDepulpingProcess(depulpingProcessesIds);
-//        }
-//        return coffeeRepository.findAll();
-//    }
-//
-//    private List<Coffee> testCompositionFilter(List<Integer> compositions) {
-//        if (compositions != null) {
-//            return coffeeRepository.findAllByCompositions(compositions);
-//        }
-//        return coffeeRepository.findAll();
-//    }
-//
-//    private List<Coffee> testSpeciesFilter(List<Long> speciesIds) {
-//        if (speciesIds != null) {
-//            return coffeeRepository.findAllBySpecies(speciesIds);
-//        }
-//        return coffeeRepository.findAll();
-//    }
-//
-//    private List<Coffee> testVolumeFilter(List<Long> volumesIds) {
-//        if (volumesIds != null) {
-//            return coffeeRepository.findAllByVolumes(volumesIds);
-//        }
-//        return coffeeRepository.findAll();
-//    }
-//
-//    private List<Coffee> testShipmentTypeFilter(List<Long> shipmentTypesIds) {
-//        if (shipmentTypesIds != null) {
-//            return coffeeRepository.findAllByShipmentType(shipmentTypesIds);
-//        }
-//        return coffeeRepository.findAll();
-//    }
-//
-//    private List<Coffee> testCityFilter(List<String> cities) {
-//        if (cities != null) {
-//            return coffeeRepository.findAllByCity(cities);
-//        }
-//        return coffeeRepository.findAll();
-//    }

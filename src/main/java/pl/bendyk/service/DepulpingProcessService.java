@@ -11,4 +11,5 @@ public interface DepulpingProcessService {
     DepulpingProcess save(DepulpingProcess depulpingProcess);
     void delete(Long id);
 
+    List<Long> findDepulpingProcessesIds();
 }

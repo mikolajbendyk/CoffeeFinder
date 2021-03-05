@@ -11,4 +11,6 @@ public interface SpeciesService {
     Species save(Species species);
     void delete(Long id);
 
+    List<Long> findSpeciesIds();
+
 }

@@ -34,4 +34,9 @@ public class VolumeServiceImpl implements VolumeService {
     public void delete(Long id) {
         volumeRepository.deleteById(id);
     }
+
+    @Override
+    public List<Long> findVolumesIds() {
+        return volumeRepository.findVolumesIds();
+    }
 }

@@ -11,4 +11,6 @@ public interface CountryService {
     Country save(Country country);
     void delete(Long id);
 
+    List<Long> findCountriesIds();
+
 }

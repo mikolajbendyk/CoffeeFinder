@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pl.bendyk.model.coffee.Composition;
 import pl.bendyk.model.coffee.Roast;
 import pl.bendyk.repository.*;
+import pl.bendyk.service.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,46 +17,44 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    private final CoffeeRepository coffeeRepository;
-    private final RoasteryRepository roasteryRepository;
-    private final CountryRepository countryRepository;
-    private final MethodRepository methodRepository;
-    private final DepulpingProcessRepository depulpingProcessRepository;
-    private final SpeciesRepository speciesRepository;
-    private final VolumeRepository volumeRepository;
-    private final ShipmentTypeRepository shipmentTypeRepository;
+    private final HomeService homeService;
+    private final CoffeeService coffeeService;
+    private final RoasteryService roasteryService;
+    private final CountryService countryService;
+    private final MethodService methodService;
+    private final DepulpingProcessService depulpingProcessService;
+    private final SpeciesService speciesService;
+    private final VolumeService volumeService;
+    private final ShipmentTypeService shipmentTypeService;
 
-    public HomeController(CoffeeRepository coffeeRepository,
-                          RoasteryRepository roasteryRepository,
-                          CountryRepository countryRepository,
-                          MethodRepository methodRepository,
-                          DepulpingProcessRepository depulpingProcessRepository,
-                          SpeciesRepository speciesRepository,
-                          VolumeRepository volumeRepository,
-                          ShipmentTypeRepository shipmentTypeRepository) {
-        this.coffeeRepository = coffeeRepository;
-        this.roasteryRepository = roasteryRepository;
-        this.countryRepository = countryRepository;
-        this.methodRepository = methodRepository;
-        this.depulpingProcessRepository = depulpingProcessRepository;
-        this.speciesRepository = speciesRepository;
-        this.volumeRepository = volumeRepository;
-        this.shipmentTypeRepository = shipmentTypeRepository;
+    public HomeController(HomeService homeService, CoffeeService coffeeService, RoasteryService roasteryService,
+                          CountryService countryService, MethodService methodService,
+                          DepulpingProcessService depulpingProcessService, SpeciesService speciesService,
+                          VolumeService volumeService, ShipmentTypeService shipmentTypeService) {
+        this.homeService = homeService;
+        this.coffeeService = coffeeService;
+        this.roasteryService = roasteryService;
+        this.countryService = countryService;
+        this.methodService = methodService;
+        this.depulpingProcessService = depulpingProcessService;
+        this.speciesService = speciesService;
+        this.volumeService = volumeService;
+        this.shipmentTypeService = shipmentTypeService;
     }
 
     @RequestMapping("/")
     public String home(Model model) {
-        model.addAttribute("coffees", coffeeRepository.findAllByActiveTrue());
-        model.addAttribute("roasteries", roasteryRepository.findAllByOrderByName());
-        model.addAttribute("countries", countryRepository.findAllByOrderByName());
-        model.addAttribute("methods", methodRepository.findAllByOrderByName());
+        model.addAttribute("coffees", coffeeService.findAllActive());
+        model.addAttribute("roasteries", roasteryService.findAll());
+        model.addAttribute("countries", countryService.findAll());
+        model.addAttribute("methods", methodService.findAll());
         model.addAttribute("roasts", Roast.values());
-        model.addAttribute("depulpingProcesses", depulpingProcessRepository.findAllByOrderByName());
+        model.addAttribute("depulpingProcesses", depulpingProcessService.findAll());
         model.addAttribute("compositions", Composition.values());
-        model.addAttribute("species", speciesRepository.findAllByOrderByName());
-        model.addAttribute("volumes", volumeRepository.findAllByOrderByGrams());
-        model.addAttribute("shipmentTypes", shipmentTypeRepository.findAllByOrderByName());
-        model.addAttribute("cities", roasteryRepository.findAllCitiesOrderByName());
+        model.addAttribute("species", speciesService.findAll());
+        model.addAttribute("volumes", volumeService.findAll());
+        model.addAttribute("shipmentTypes", shipmentTypeService.findAll());
+        model.addAttribute("cities", roasteryService.findAllCities());
         return "home/coffees/showAll";
     }
 
@@ -73,140 +72,140 @@ public class HomeController {
                              @RequestParam(required = false) List<Long> shipmentTypesIds,
                              @RequestParam(required = false) List<String> cities
     ) {
-        model.addAttribute("roasteries", roasteryRepository.findAllByOrderByName());
-        model.addAttribute("countries", countryRepository.findAllByOrderByName());
-        model.addAttribute("methods", methodRepository.findAllByOrderByName());
+        model.addAttribute("roasteries", roasteryService.findAll());
+        model.addAttribute("countries", countryService.findAll());
+        model.addAttribute("methods", methodService.findAll());
         model.addAttribute("roasts", Roast.values());
-        model.addAttribute("depulpingProcesses", depulpingProcessRepository.findAllByOrderByName());
+        model.addAttribute("depulpingProcesses", depulpingProcessService.findAll());
         model.addAttribute("compositions", Composition.values());
-        model.addAttribute("species", speciesRepository.findAllByOrderByName());
-        model.addAttribute("volumes", volumeRepository.findAllByOrderByGrams());
-        model.addAttribute("shipmentTypes", shipmentTypeRepository.findAllByOrderByName());
-        model.addAttribute("cities", roasteryRepository.findAllCitiesOrderByName());
+        model.addAttribute("species", speciesService.findAll());
+        model.addAttribute("volumes", volumeService.findAll());
+        model.addAttribute("shipmentTypes", shipmentTypeService.findAll());
+        model.addAttribute("cities", roasteryService.findAllCities());
 
         if (sort != null) {
             if (sort.equals("priceAsc")) {
-                model.addAttribute("coffees", coffeeRepository.findFilteredSortedAsc(
-                        roasteriesCheck(roasteriesIds),
-                        countriesCheck(countriesIds),
-                        methodsCheck(methodsIds),
-                        roastsCheck(roasts),
-                        depulpingProcessesCheck(depulpingProcessesIds),
-                        compositionsCheck(compositions),
-                        speciesCheck(speciesIds),
-                        volumesCheck(volumesIds),
-                        shipmentTypesCheck(shipmentTypesIds),
-                        citiesCheck(cities)
+                model.addAttribute("coffees", coffeeService.findFilteredSortedAsc(
+                        homeService.roasteriesCheck(roasteriesIds),
+                        homeService.countriesCheck(countriesIds),
+                        homeService.methodsCheck(methodsIds),
+                        homeService.roastsCheck(roasts),
+                        homeService.depulpingProcessesCheck(depulpingProcessesIds),
+                        homeService.compositionsCheck(compositions),
+                        homeService.speciesCheck(speciesIds),
+                        homeService.volumesCheck(volumesIds),
+                        homeService.shipmentTypesCheck(shipmentTypesIds),
+                        homeService.citiesCheck(cities)
                 ));
             } else if (sort.equals("priceDesc")){
-                model.addAttribute("coffees", coffeeRepository.findFilteredSortedDesc(
-                        roasteriesCheck(roasteriesIds),
-                        countriesCheck(countriesIds),
-                        methodsCheck(methodsIds),
-                        roastsCheck(roasts),
-                        depulpingProcessesCheck(depulpingProcessesIds),
-                        compositionsCheck(compositions),
-                        speciesCheck(speciesIds),
-                        volumesCheck(volumesIds),
-                        shipmentTypesCheck(shipmentTypesIds),
-                        citiesCheck(cities)
+                model.addAttribute("coffees", coffeeService.findFilteredSortedDesc(
+                        homeService.roasteriesCheck(roasteriesIds),
+                        homeService.countriesCheck(countriesIds),
+                        homeService.methodsCheck(methodsIds),
+                        homeService.roastsCheck(roasts),
+                        homeService.depulpingProcessesCheck(depulpingProcessesIds),
+                        homeService.compositionsCheck(compositions),
+                        homeService.speciesCheck(speciesIds),
+                        homeService.volumesCheck(volumesIds),
+                        homeService.shipmentTypesCheck(shipmentTypesIds),
+                        homeService.citiesCheck(cities)
                 ));
             }
         } else {
-            model.addAttribute("coffees", coffeeRepository.findFiltered(
-                    roasteriesCheck(roasteriesIds),
-                    countriesCheck(countriesIds),
-                    methodsCheck(methodsIds),
-                    roastsCheck(roasts),
-                    depulpingProcessesCheck(depulpingProcessesIds),
-                    compositionsCheck(compositions),
-                    speciesCheck(speciesIds),
-                    volumesCheck(volumesIds),
-                    shipmentTypesCheck(shipmentTypesIds),
-                    citiesCheck(cities)
+            model.addAttribute("coffees", coffeeService.findFiltered(
+                    homeService.roasteriesCheck(roasteriesIds),
+                    homeService.countriesCheck(countriesIds),
+                    homeService.methodsCheck(methodsIds),
+                    homeService.roastsCheck(roasts),
+                    homeService.depulpingProcessesCheck(depulpingProcessesIds),
+                    homeService.compositionsCheck(compositions),
+                    homeService.speciesCheck(speciesIds),
+                    homeService.volumesCheck(volumesIds),
+                    homeService.shipmentTypesCheck(shipmentTypesIds),
+                    homeService.citiesCheck(cities)
             ));
         }
         return "home/coffees/showAll";
     }
 
 
-    private List<Long> roasteriesCheck(List<Long> ids) {
-        if (ids == null) {
-            return coffeeRepository.findRoasteriesIds();
-        }
-        return ids;
-    }
-
-    private List<Long> countriesCheck(List<Long> ids) {
-        if (ids == null) {
-            return coffeeRepository.findCountriesIds();
-        }
-        return ids;
-    }
-
-    private List<Long> methodsCheck(List<Long> ids) {
-        if (ids == null) {
-            return coffeeRepository.findMethodsIds();
-        }
-        return ids;
-    }
-
-    private List<Integer> roastsCheck(List<Integer> roasts) {
-        if (roasts == null) {
-            List<Integer> ordinals = new ArrayList<>();
-            for (Roast r : Roast.values()) {
-                ordinals.add(r.ordinal());
-            }
-            return ordinals;
-        }
-        return roasts;
-    }
-
-    private List<Long> depulpingProcessesCheck(List<Long> ids) {
-        if (ids == null) {
-            return coffeeRepository.findDepulpingProcessesIds();
-        }
-        return ids;
-    }
-
-    private List<Integer> compositionsCheck(List<Integer> compositions) {
-        if (compositions == null) {
-            List<Integer> ordinals = new ArrayList<>();
-            for (Composition c : Composition.values()) {
-                ordinals.add(c.ordinal());
-            }
-            return ordinals;
-        }
-        return compositions;
-    }
-
-    private List<Long> speciesCheck(List<Long> ids) {
-        if (ids == null) {
-            return coffeeRepository.findSpeciesIds();
-        }
-        return ids;
-    }
-
-    private List<Long> volumesCheck(List<Long> ids) {
-        if (ids == null) {
-            return coffeeRepository.findVolumesIds();
-        }
-        return ids;
-    }
-
-    private List<Long> shipmentTypesCheck(List<Long> ids) {
-        if (ids == null) {
-            return coffeeRepository.findShipmentTypesIds();
-        }
-        return ids;
-    }
-
-    private List<String> citiesCheck(List<String> cities) {
-        if (cities == null) {
-            return roasteryRepository.findAllCitiesOrderByName();
-        }
-        return cities;
-    }
+//    private List<Long> roasteriesCheck(List<Long> ids) {
+//        if (ids == null) {
+//            return coffeeRepository.findRoasteriesIds();
+//        }
+//        return ids;
+//    }
+//
+//    private List<Long> countriesCheck(List<Long> ids) {
+//        if (ids == null) {
+//            return coffeeRepository.findCountriesIds();
+//        }
+//        return ids;
+//    }
+//
+//    private List<Long> methodsCheck(List<Long> ids) {
+//        if (ids == null) {
+//            return coffeeRepository.findMethodsIds();
+//        }
+//        return ids;
+//    }
+//
+//    private List<Integer> roastsCheck(List<Integer> roasts) {
+//        if (roasts == null) {
+//            List<Integer> ordinals = new ArrayList<>();
+//            for (Roast r : Roast.values()) {
+//                ordinals.add(r.ordinal());
+//            }
+//            return ordinals;
+//        }
+//        return roasts;
+//    }
+//
+//    private List<Long> depulpingProcessesCheck(List<Long> ids) {
+//        if (ids == null) {
+//            return coffeeRepository.findDepulpingProcessesIds();
+//        }
+//        return ids;
+//    }
+//
+//    private List<Integer> compositionsCheck(List<Integer> compositions) {
+//        if (compositions == null) {
+//            List<Integer> ordinals = new ArrayList<>();
+//            for (Composition c : Composition.values()) {
+//                ordinals.add(c.ordinal());
+//            }
+//            return ordinals;
+//        }
+//        return compositions;
+//    }
+//
+//    private List<Long> speciesCheck(List<Long> ids) {
+//        if (ids == null) {
+//            return coffeeRepository.findSpeciesIds();
+//        }
+//        return ids;
+//    }
+//
+//    private List<Long> volumesCheck(List<Long> ids) {
+//        if (ids == null) {
+//            return coffeeRepository.findVolumesIds();
+//        }
+//        return ids;
+//    }
+//
+//    private List<Long> shipmentTypesCheck(List<Long> ids) {
+//        if (ids == null) {
+//            return coffeeRepository.findShipmentTypesIds();
+//        }
+//        return ids;
+//    }
+//
+//    private List<String> citiesCheck(List<String> cities) {
+//        if (cities == null) {
+//            return roasteryRepository.findAllCitiesOrderByName();
+//        }
+//        return cities;
+//    }
 
 
 

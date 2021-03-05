@@ -34,4 +34,9 @@ public class MethodServiceImpl implements MethodService {
     public void delete(Long id) {
         methodRepository.deleteById(id);
     }
+
+    @Override
+    public List<Long> findMethodsIds() {
+        return methodRepository.findMethodsIds();
+    }
 }

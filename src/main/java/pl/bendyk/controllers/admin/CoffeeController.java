@@ -8,6 +8,7 @@ import pl.bendyk.model.coffee.Coffee;
 import pl.bendyk.repository.*;
 import pl.bendyk.model.coffee.Roast;
 import pl.bendyk.model.coffee.Composition;
+import pl.bendyk.service.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -16,37 +17,36 @@ import java.util.List;
 @RequestMapping("/admin/coffees")
 public class CoffeeController {
 
-    private final CoffeeRepository coffeeRepository;
-    private final CountryRepository countryRepository;
-    private final RoasteryRepository roasteryRepository;
-    private final MethodRepository methodRepository;
-    private final SpeciesRepository speciesRepository;
-    private final VolumeRepository volumeRepository;
-    private final DepulpingProcessRepository depulpingProcessRepository;
+    private final CoffeeService coffeeService;
+    private final CountryService countryService;
+    private final RoasteryService roasteryService;
+    private final MethodService methodService;
+    private final SpeciesService speciesService;
+    private final VolumeService volumeService;
+    private final DepulpingProcessService depulpingProcessService;
 
-    public CoffeeController(CoffeeRepository coffeeRepository, CountryRepository countryRepository,
-                            RoasteryRepository roasteryRepository, MethodRepository methodRepository,
-                            SpeciesRepository speciesRepository, VolumeRepository volumeRepository,
-                            DepulpingProcessRepository depulpingProcessRepository) {
-        this.coffeeRepository = coffeeRepository;
-        this.countryRepository = countryRepository;
-        this.roasteryRepository = roasteryRepository;
-        this.methodRepository = methodRepository;
-        this.speciesRepository = speciesRepository;
-        this.volumeRepository = volumeRepository;
-        this.depulpingProcessRepository = depulpingProcessRepository;
+    public CoffeeController(CoffeeService coffeeService, CountryService countryService, RoasteryService roasteryService,
+                            MethodService methodService, SpeciesService speciesService, VolumeService volumeService,
+                            DepulpingProcessService depulpingProcessService) {
+        this.coffeeService = coffeeService;
+        this.countryService = countryService;
+        this.roasteryService = roasteryService;
+        this.methodService = methodService;
+        this.speciesService = speciesService;
+        this.volumeService = volumeService;
+        this.depulpingProcessService = depulpingProcessService;
     }
 
     @RequestMapping("/all")
     public String all(Model model, @RequestParam(required = false) String sort) {
-        List<Coffee> coffees = coffeeRepository.findAllByOrderByName();
+        List<Coffee> coffees = coffeeService.findAll();
         if (sort != null) {
             if (sort.equals("country")) {
-                coffees = coffeeRepository.findAllByOrderByCountry();
+                coffees = coffeeService.findAllOrderedByCountry();
             } else if (sort.equals("roastery")) {
-                coffees = coffeeRepository.findAllByOrderByRoastery();
+                coffees = coffeeService.findAllOrderedByRoastery();
             } else if (sort.equals("active")) {
-                coffees = coffeeRepository.findAllByOrderByActive();
+                coffees = coffeeService.findAllOrderedByActive();
             }
         }
         model.addAttribute("coffees", coffees);
@@ -55,63 +55,63 @@ public class CoffeeController {
 
     @GetMapping("/add")
     public String getAddForm(Coffee coffee, Model model) {
-        model.addAttribute("countries", countryRepository.findAllByOrderByName());
-        model.addAttribute("processes", depulpingProcessRepository.findAll());
-        model.addAttribute("roasteries", roasteryRepository.findAllByOrderByName());
+        model.addAttribute("countries", countryService.findAll());
+        model.addAttribute("processes", depulpingProcessService.findAll());
+        model.addAttribute("roasteries", roasteryService.findAll());
         model.addAttribute("roasts", Roast.values());
-        model.addAttribute("methods", methodRepository.findAll());
+        model.addAttribute("methods", methodService.findAll());
         model.addAttribute("compositions", Composition.values());
-        model.addAttribute("species", speciesRepository.findAll());
-        model.addAttribute("volumes", volumeRepository.findAll());
+        model.addAttribute("species", speciesService.findAll());
+        model.addAttribute("volumes", volumeService.findAll());
         return "admin/coffees/add";
     }
 
     @PostMapping("/add")
     public String postAddForm(@Valid Coffee coffee, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            model.addAttribute("countries", countryRepository.findAllByOrderByName());
-            model.addAttribute("processes", depulpingProcessRepository.findAll());
-            model.addAttribute("roasteries", roasteryRepository.findAllByOrderByName());
+            model.addAttribute("countries", countryService.findAll());
+            model.addAttribute("processes", depulpingProcessService.findAll());
+            model.addAttribute("roasteries", roasteryService.findAll());
             model.addAttribute("roasts", Roast.values());
-            model.addAttribute("methods", methodRepository.findAll());
+            model.addAttribute("methods", methodService.findAll());
             model.addAttribute("compositions", Composition.values());
-            model.addAttribute("species", speciesRepository.findAll());
-            model.addAttribute("volumes", volumeRepository.findAll());
+            model.addAttribute("species", speciesService.findAll());
+            model.addAttribute("volumes", volumeService.findAll());
             return "admin/coffees/add";
         }
-        coffeeRepository.save(coffee);
+        coffeeService.save(coffee);
         return "redirect:/admin/coffees/all";
     }
 
     @GetMapping("/edit/{id}")
     public String getEditForm(@PathVariable Long id, Model model) {
-        model.addAttribute("coffee", coffeeRepository.findById(id));
-        model.addAttribute("countries", countryRepository.findAllByOrderByName());
-        model.addAttribute("processes", depulpingProcessRepository.findAll());
-        model.addAttribute("roasteries", roasteryRepository.findAllByOrderByName());
+        model.addAttribute("coffee", coffeeService.findOne(id));
+        model.addAttribute("countries", countryService.findAll());
+        model.addAttribute("processes", depulpingProcessService.findAll());
+        model.addAttribute("roasteries", roasteryService.findAll());
         model.addAttribute("roasts", Roast.values());
-        model.addAttribute("methods", methodRepository.findAll());
+        model.addAttribute("methods", methodService.findAll());
         model.addAttribute("compositions", Composition.values());
-        model.addAttribute("species", speciesRepository.findAll());
-        model.addAttribute("volumes", volumeRepository.findAll());
+        model.addAttribute("species", speciesService.findAll());
+        model.addAttribute("volumes", volumeService.findAll());
         return "admin/coffees/edit";
     }
 
     @PostMapping("edit/{id}")
     public String postEditForm(@Valid Coffee coffee, BindingResult result, @PathVariable Long id, Model model) {
         if (result.hasErrors()) {
-            model.addAttribute("coffee", coffeeRepository.findById(id));
-            model.addAttribute("countries", countryRepository.findAllByOrderByName());
-            model.addAttribute("processes", depulpingProcessRepository.findAll());
-            model.addAttribute("roasteries", roasteryRepository.findAllByOrderByName());
+            model.addAttribute("coffee", coffeeService.findOne(id));
+            model.addAttribute("countries", countryService.findAll());
+            model.addAttribute("processes", depulpingProcessService.findAll());
+            model.addAttribute("roasteries", roasteryService.findAll());
             model.addAttribute("roasts", Roast.values());
-            model.addAttribute("methods", methodRepository.findAll());
+            model.addAttribute("methods", methodService.findAll());
             model.addAttribute("compositions", Composition.values());
-            model.addAttribute("species", speciesRepository.findAll());
-            model.addAttribute("volumes", volumeRepository.findAll());
+            model.addAttribute("species", speciesService.findAll());
+            model.addAttribute("volumes", volumeService.findAll());
             return "admin/coffees/edit";
         }
-        coffeeRepository.save(coffee);
+        coffeeService.save(coffee);
         return "redirect:/admin/coffees/all";
     }
 
@@ -122,7 +122,7 @@ public class CoffeeController {
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
-        coffeeRepository.deleteById(id);
+        coffeeService.delete(id);
         return "redirect:/admin/coffees/all";
     }
 

@@ -34,4 +34,9 @@ public class DepulpingProcessServiceImpl implements DepulpingProcessService {
     public void delete(Long id) {
         depulpingProcessRepository.deleteById(id);
     }
+
+    @Override
+    public List<Long> findDepulpingProcessesIds() {
+        return depulpingProcessRepository.findDepulpingProcessesIds();
+    }
 }

@@ -13,7 +13,6 @@ import java.util.Optional;
 public interface CoffeeRepository extends JpaRepository<Coffee, Long> {
 
     List<Coffee> findAll();
-    Optional<Coffee> findById(Long id);
     Coffee save(Coffee coffee);
     void deleteById(Long id);
 
@@ -31,32 +30,6 @@ public interface CoffeeRepository extends JpaRepository<Coffee, Long> {
     boolean existsByDepulpingProcessId(Long id);
 
     List<Coffee> findAllByActiveTrue();
-
-
-
-
-    @Query(value = "select id from roasteries", nativeQuery = true)
-    List<Long> findRoasteriesIds();
-
-    @Query(value = "select id from countries", nativeQuery = true)
-    List<Long> findCountriesIds();
-
-    @Query(value = "select id from methods", nativeQuery = true)
-    List<Long> findMethodsIds();
-
-    @Query(value = "select id from processes", nativeQuery = true)
-    List<Long> findDepulpingProcessesIds();
-
-    @Query(value = "select id from species", nativeQuery = true)
-    List<Long> findSpeciesIds();
-
-    @Query(value = "select id from volumes", nativeQuery = true)
-    List<Long> findVolumesIds();
-
-    @Query(value = "select id from shipment_types", nativeQuery = true)
-    List<Long> findShipmentTypesIds();
-
-
 
 
     @Query(value = "select distinct c.* from coffees c " +

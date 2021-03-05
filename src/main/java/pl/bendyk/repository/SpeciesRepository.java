@@ -1,6 +1,7 @@
 package pl.bendyk.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import pl.bendyk.model.coffee.Species;
 
@@ -13,5 +14,8 @@ public interface SpeciesRepository extends JpaRepository<Species, Long> {
     List<Species> findAllByOrderByName();
     Species save(Species species);
     void deleteById(Long id);
+
+    @Query(value = "select id from species", nativeQuery = true)
+    List<Long> findSpeciesIds();
 
 }

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import pl.bendyk.model.others.ShipmentType;
 import pl.bendyk.repository.ShipmentRepository;
 import pl.bendyk.repository.ShipmentTypeRepository;
+import pl.bendyk.service.ShipmentService;
+import pl.bendyk.service.ShipmentTypeService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -15,17 +17,17 @@ import java.util.List;
 @RequestMapping("/admin/shipment-types")
 public class ShipmentTypeController {
 
-    private final ShipmentTypeRepository shipmentTypeRepository;
-    private final ShipmentRepository shipmentRepository;
+    private final ShipmentTypeService shipmentTypeService;
+    private final ShipmentService shipmentService;
 
-    public ShipmentTypeController(ShipmentTypeRepository shipmentTypeRepository, ShipmentRepository shipmentRepository) {
-        this.shipmentTypeRepository = shipmentTypeRepository;
-        this.shipmentRepository = shipmentRepository;
+    public ShipmentTypeController(ShipmentTypeService shipmentTypeService, ShipmentService shipmentService) {
+        this.shipmentTypeService = shipmentTypeService;
+        this.shipmentService = shipmentService;
     }
 
     @RequestMapping("/all")
     public String all(Model model) {
-        List<ShipmentType> shipmentTypes = shipmentTypeRepository.findAll();
+        List<ShipmentType> shipmentTypes = shipmentTypeService.findAll();
         model.addAttribute("shipmentTypes", shipmentTypes);
         return "admin/shipmentTypes/showAll";
     }
@@ -40,13 +42,13 @@ public class ShipmentTypeController {
         if (result.hasErrors()) {
             return "admin/shipmentTypes/add";
         }
-        shipmentTypeRepository.save(shipmentType);
+        shipmentTypeService.save(shipmentType);
         return "redirect:/admin/shipment-types/all";
     }
 
     @GetMapping("/edit/{id}")
     public String getEditForm(@PathVariable Long id, Model model) {
-        model.addAttribute("shipmentType", shipmentTypeRepository.findById(id));
+        model.addAttribute("shipmentType", shipmentTypeService.findOne(id));
         return "admin/shipmentTypes/edit";
     }
 
@@ -55,13 +57,13 @@ public class ShipmentTypeController {
         if (result.hasErrors()) {
             return "admin/shipmentTypes/edit";
         }
-        shipmentTypeRepository.save(shipmentType);
+        shipmentTypeService.save(shipmentType);
         return "redirect:/admin/shipment-types/all";
     }
 
     @RequestMapping("/confirm")
     public String confirm(@RequestParam Long id) {
-        if (shipmentRepository.existsByShipmentTypeId(id)) {
+        if (shipmentService.exists(id)) {
             return "admin/shipmentTypes/confirmIfCoffee";
         }
         return "admin/shipmentTypes/confirm";
@@ -69,7 +71,7 @@ public class ShipmentTypeController {
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
-        shipmentTypeRepository.deleteById(id);
+        shipmentTypeService.delete(id);
         return "redirect:/admin/shipment-types/all";
     }
 

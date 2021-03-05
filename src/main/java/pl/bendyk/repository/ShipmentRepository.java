@@ -13,12 +13,13 @@ import java.util.Optional;
 @Repository
 public interface ShipmentRepository extends JpaRepository<Shipment, Long> {
 
-    List<Shipment> findAllByOrderByName();
+    List<Shipment> findAll();
 
     @Query(value = "select * from shipments where roastery_id = ?1", nativeQuery = true)
     List<Shipment> findShipmentsForRoastery(Long id);
 
     Shipment save(Shipment shipment);
+
     void deleteById(Long id);
 
     boolean existsByShipmentTypeId(Long id);

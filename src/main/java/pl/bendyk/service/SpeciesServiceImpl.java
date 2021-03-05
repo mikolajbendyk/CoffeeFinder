@@ -34,4 +34,9 @@ public class SpeciesServiceImpl implements SpeciesService {
     public void delete(Long id) {
         speciesRepository.deleteById(id);
     }
+
+    @Override
+    public List<Long> findSpeciesIds() {
+        return speciesRepository.findSpeciesIds();
+    }
 }

@@ -11,4 +11,6 @@ public interface VolumeService {
     Volume save(Volume volume);
     void delete(Long id);
 
+    List<Long> findVolumesIds();
+
 }

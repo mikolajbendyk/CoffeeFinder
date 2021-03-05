@@ -10,6 +10,8 @@ import pl.bendyk.model.others.Shipment;
 import pl.bendyk.repository.CoffeeRepository;
 import pl.bendyk.repository.RoasteryRepository;
 import pl.bendyk.repository.ShipmentRepository;
+import pl.bendyk.service.RoasteryService;
+import pl.bendyk.service.ShipmentService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -18,22 +20,22 @@ import java.util.List;
 @RequestMapping("/admin/roasteries")
 public class RoasteryController {
 
-    private final RoasteryRepository roasteryRepository;
-    private final ShipmentRepository shipmentRepository;
+    private final RoasteryService roasteryService;
+    private final ShipmentService shipmentService;
     private final CoffeeRepository coffeeRepository;
 
-    public RoasteryController(RoasteryRepository roasteryRepository, ShipmentRepository shipmentRepository, CoffeeRepository coffeeRepository) {
-        this.roasteryRepository = roasteryRepository;
-        this.shipmentRepository = shipmentRepository;
+    public RoasteryController(RoasteryService roasteryService, ShipmentService shipmentService, CoffeeRepository coffeeRepository) {
+        this.roasteryService = roasteryService;
+        this.shipmentService = shipmentService;
         this.coffeeRepository = coffeeRepository;
     }
 
     @GetMapping("/all")
     public String showAll(Model model, @RequestParam(required = false) String sort) {
-        List<Roastery> roasteries = roasteryRepository.findAllByOrderByName();
+        List<Roastery> roasteries = roasteryService.findAll();
         if (sort != null) {
             if (sort.equals("city")) {
-                roasteries = roasteryRepository.findAllByOrderByCity();
+                roasteries = roasteryService.findAllOrderedByCity();
             }
         }
         model.addAttribute("roasteries", roasteries);
@@ -50,14 +52,14 @@ public class RoasteryController {
         if (result.hasErrors()) {
             return "admin/roasteries/add";
         }
-        roasteryRepository.save(roastery);
+        roasteryService.save(roastery);
         return "redirect:/admin/roasteries/edit/" + roastery.getId();
     }
 
     @GetMapping("/edit/{id}")
     public String getEditForm(@PathVariable Long id, Model model) {
-        model.addAttribute("roastery", roasteryRepository.findById(id));
-        model.addAttribute("shipments", shipmentRepository.findShipmentsForRoastery(id));
+        model.addAttribute("roastery", roasteryService.findOne(id));
+        model.addAttribute("shipments", shipmentService.findShipmentsForRoastery(id));
         return "admin/roasteries/edit";
     }
 
@@ -66,7 +68,7 @@ public class RoasteryController {
         if (result.hasErrors()) {
             return "admin/roasteries/edit";
         }
-        roasteryRepository.save(roastery);
+        roasteryService.save(roastery);
         return "redirect:/admin/roasteries/all";
     }
 
@@ -80,11 +82,11 @@ public class RoasteryController {
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
-        List<Shipment> shipments = shipmentRepository.findShipmentsForRoastery(id);
+        List<Shipment> shipments = shipmentService.findShipmentsForRoastery(id);
         for (Shipment s : shipments) {
-            shipmentRepository.deleteById(s.getId());
+            shipmentService.delete(s.getId());
         }
-        roasteryRepository.deleteById(id);
+        roasteryService.delete(id);
         return "redirect:/admin/roasteries/all";
     }
 }

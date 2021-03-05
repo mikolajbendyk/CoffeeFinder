@@ -11,4 +11,6 @@ public interface MethodService {
     Method save(Method method);
     void delete(Long id);
 
+    List<Long> findMethodsIds();
+
 }

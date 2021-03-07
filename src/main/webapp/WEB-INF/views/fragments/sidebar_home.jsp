@@ -19,7 +19,7 @@
         Filtrowanie
     </div>
 
-    <form method="get">
+    <form method="get" class="filter-form">
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sort">
                 <span>Sortuj</span>

@@ -24,15 +24,7 @@
     <!-- Custom styles for this template-->
     <link href='<c:url value="/theme/css/sb-admin-2.min.css"/>' rel="stylesheet">
 
-    <style>
-        img {
-            height: 200px;
-        }
 
-        form {
-            padding: 0.6rem;
-        }
-    </style>
 </head>
 
 <body id="page-top">
@@ -76,7 +68,7 @@
                                     <a href='<c:url value="${coffee.link}"/>' target="_blank">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div><img src='<c:url value="${coffee.imageSrc}"/>'></div>
+                                            <div><img src='<c:url value="${coffee.imageSrc}"/>' class="img-item"></div>
                                             <div class="text-lg font-weight-bold text-primary text-uppercase mb-1">
                                                     ${coffee.name}
                                             </div>
